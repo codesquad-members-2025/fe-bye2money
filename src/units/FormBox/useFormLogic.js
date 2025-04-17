@@ -42,7 +42,7 @@ function reducer(state, action) {
       return { ...state, type: action.type };
     }
     case "PUT_AMOUNT": {
-      state.amount = action.amount;
+      return { ...state, amount: action.amount };
     }
     case "PUT_DESCRIPTION": {
       state.description = action.description;
