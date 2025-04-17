@@ -11,10 +11,17 @@ const AmountInputWrapper = styled.input`
   border: none;
 `;
 
+const CurrencyUnit = styled.div`
+  font-weight: ${({ theme }) => theme.weight.light};
+  font-size: ${({ theme }) => theme.weight.size.xs};
+`;
+
 const formatNumber = (value) => {
   const onlyNums = value.replace(/[^0-9]/g, "");
   return onlyNums.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
+
+const currencyUnitText = "원";
 
 export default function AmountInput({ amount, onChange }) {
   // const [amount, setAmount] = useState("");
@@ -26,11 +33,14 @@ export default function AmountInput({ amount, onChange }) {
   };
 
   return (
-    <AmountInputWrapper
-      type="text"
-      value={amount}
-      onChange={handleChange}
-      placeholder="0"
-    />
+    <AmountWrapper>
+      <AmountInputWrapper
+        type="text"
+        value={amount}
+        onChange={handleChange}
+        placeholder="0"
+      />
+      <CurrencyUnit>{currencyUnitText}</CurrencyUnit>
+    </AmountWrapper>
   );
 }
