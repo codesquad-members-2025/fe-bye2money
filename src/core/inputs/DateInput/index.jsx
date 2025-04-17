@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import InputField from "../InputField";
 import { useState } from "react";
 
 const RedDateBox = styled.div`
@@ -12,27 +13,28 @@ const SmallLightText = styled.span`
   line-height: ${({ theme }) => theme.font.lineHeight.md};
   color: ${({ theme }) => theme.color.token.text.default};
 `;
-const RegDateInput = styled.input`
-  font-family: ${({ theme }) => theme.font.sans};
-  font-weight: ${({ theme }) => theme.font.weight.semibold};
-  font-size: ${({ theme }) => theme.font.size.xs};
-  line-height: ${({ theme }) => theme.font.lineHeight.sm};
-  color: ${({ theme }) => theme.color.token.text.default};
-`;
 
 const dateLabelText = "일자";
+
+const inputField = {
+  type: "date",
+  id: "RegDate",
+  name: "RegDate",
+  minDate: "1800-01-01",
+  maxDate: "4000-01-01",
+};
 
 export default function DateInput({ value, onChange }) {
   return (
     <RedDateBox>
       <SmallLightText>{dateLabelText}</SmallLightText>
-      <RegDateInput
-        type="date"
-        id="RegDate"
-        name="RegDate"
+      <InputField
+        type={inputField.type}
+        id={inputField.id}
+        name={inputField.name}
         value={value}
-        min="1800-01-01"
-        max="4000-01-01"
+        min={inputField.minDate}
+        max={inputField.maxDate}
         onChange={(e) => onChange(e.target.value)}
       />
     </RedDateBox>

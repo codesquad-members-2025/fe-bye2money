@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import InputField from "../InputField";
 
 const AmountWrapper = styled.div`
   display: flex;
   gap: 8px;
 `;
 
-const AmountInputWrapper = styled.input`
+const AmountInputWrapper = styled(InputField)`
   text-align: right;
-  border: none;
 `;
 
 const CurrencyUnit = styled.div`
