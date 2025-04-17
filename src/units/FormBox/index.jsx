@@ -1,4 +1,10 @@
 import styled from "styled-components";
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+`;
 import useFormLogic from "./useFormLogic";
 import DateInput from "../../core/inputs/DateInput";
 import TypeToggle from "../../core/inputs/TypeToggle";
@@ -11,7 +17,7 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
     selectedTransactions
   );
   return (
-    <form>
+    <StyledForm>
       <DateInput
         value={formState.regDate}
         onChange={(val) => formDispatch({ type: "PUT_REGDATE", regDate: val })}
@@ -26,6 +32,6 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
           formDispatch({ type: "PUT_AMOUNT", regDate: amount });
         }}
       />
-    </form>
+    </StyledForm>
   );
 }
