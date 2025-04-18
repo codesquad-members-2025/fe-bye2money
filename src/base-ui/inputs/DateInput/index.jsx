@@ -25,16 +25,15 @@ const inputField = {
 };
 
 export default function DateInput({ value, onChange }) {
+  const { minDate, maxDate, ...inputProps } = inputField;
   return (
     <RedDateBox>
       <SmallLightText>{dateLabelText}</SmallLightText>
       <InputField
-        type={inputField.type}
-        id={inputField.id}
-        name={inputField.name}
+        {...inputProps}
         value={value}
-        min={inputField.minDate}
-        max={inputField.maxDate}
+        min={minDate}
+        max={maxDate}
         onChange={(e) => onChange(e.target.value)}
       />
     </RedDateBox>

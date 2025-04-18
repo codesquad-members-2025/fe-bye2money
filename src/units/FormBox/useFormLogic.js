@@ -35,22 +35,22 @@ export default function useFormLogic(
 
 function reducer(state, action) {
   switch (action.type) {
-    case "PUT_REGDATE": {
+    case "SET_REGDATE": {
       return { ...state, regDate: action.regDate };
     }
-    case "PUT_TYPE": {
+    case "SET_TYPE": {
       return { ...state, type: action.type };
     }
-    case "PUT_AMOUNT": {
+    case "SET_AMOUNT": {
       return { ...state, amount: action.amount };
     }
-    case "PUT_DESCRIPTION": {
-      state.description = action.description;
+    case "SET_DESCRIPTION": {
+      return { ...state, description: action.description };
     }
-    case "PUT_METHOD": {
+    case "SET_METHOD": {
       state.method = action.method;
     }
-    case "PUT_CLASSIFICATION": {
+    case "SET_CLASSIFICATION": {
       state.classification = action.classification;
     }
   }

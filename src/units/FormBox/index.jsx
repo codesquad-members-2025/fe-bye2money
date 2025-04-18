@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import useFormLogic from "./useFormLogic";
-import DateInput from "../../core/inputs/DateInput";
-import TypeToggle from "../../core/inputs/TypeToggle";
-import AmountInput from "../../core/inputs/AmountInput";
-import DescriptionInput from "../../core/inputs/DescriptionInput";
+import DateInput from "../../base-ui/inputs/DateInput";
+import TypeToggle from "../../base-ui/inputs/TypeToggle";
+import AmountInput from "../../base-ui/inputs/AmountInput";
+import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
 
 const StyledForm = styled.form`
   display: flex;
