@@ -22,23 +22,23 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
     <StyledForm>
       <DateInput
         value={formState.regDate}
-        onChange={(val) => formDispatch({ type: "PUT_REGDATE", regDate: val })}
+        onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}
       />
       <TypeToggle
         type={formState.type}
-        onClick={(type) => formDispatch({ type: "PUT_TYPE", type: type })}
+        onClick={(type) => formDispatch({ type: "SET_TYPE", type: type })}
       />
       <AmountInput
         amount={formState.amount}
         onChange={(amount) => {
-          formDispatch({ type: "PUT_AMOUNT", regDate: amount });
+          formDispatch({ type: "SET_AMOUNT", regDate: amount });
         }}
       />
 
       <DescriptionInput
         description={formState.description}
         onChange={(val) =>
-          formDispatch({ type: "PUT_DESCRIPTION", description: val })
+          formDispatch({ type: "SET_DESCRIPTION", description: val })
         }
       />
     </StyledForm>

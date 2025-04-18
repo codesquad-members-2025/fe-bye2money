@@ -16,7 +16,7 @@ const CurrencyUnit = styled.div`
   font-size: ${({ theme }) => theme.weight.size.xs};
 `;
 
-const formatNumber = (value) => {
+const formatCurrencyWithComma = (value) => {
   const onlyNums = value.replace(/[^0-9]/g, "");
   return onlyNums.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
@@ -28,7 +28,7 @@ export default function AmountInput({ amount, onChange }) {
 
   const handleChange = (e) => {
     const input = e.target.value;
-    const formatted = formatNumber(input);
+    const formatted = formatCurrencyWithComma(input);
     onChange(formatted);
   };
 
