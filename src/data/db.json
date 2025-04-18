@@ -1,0 +1,75 @@
+{
+  "initFormData": {
+    "formDefaults": {
+      "date": "2025-04-15",
+      "amount": 0,
+      "content": "",
+      "paymentMethod": "카드",
+      "type": "expense"
+    },
+    "paymentMethods": ["카드", "현금", "계좌이체", "기타"],
+    "categories": {
+      "income": ["월급", "용돈", "기타수입"],
+      "expense": [
+        "생활",
+        "식비",
+        "교통",
+        "쇼핑/뷰티",
+        "의료/건강",
+        "문화/여가",
+        "미분류"
+      ]
+    }
+  },
+  "logData": {
+    "2025-08": [
+      {
+        "id": "1",
+        "date": "2025-08-01",
+        "amount": 20000,
+        "content": "장보기",
+        "paymentMethod": "카드",
+        "type": "expense",
+        "createdAt": "2025-08-01T09:15:00Z"
+      },
+      {
+        "id": "2",
+        "date": "2025-08-02",
+        "amount": 30000,
+        "content": "교통비 충전",
+        "paymentMethod": "현금",
+        "type": "expense",
+        "createdAt": "2025-08-02T10:00:00Z"
+      },
+      {
+        "id": "3",
+        "date": "2025-08-05",
+        "amount": 150000,
+        "content": "월급",
+        "paymentMethod": "",
+        "type": "income",
+        "createdAt": "2025-08-05T12:30:00Z"
+      }
+    ],
+    "2025-09": [
+      {
+        "id": "4",
+        "date": "2025-09-01",
+        "amount": 10000,
+        "content": "편의점",
+        "paymentMethod": "카드",
+        "type": "expense",
+        "createdAt": "2025-09-01T14:05:00Z"
+      },
+      {
+        "id": "5",
+        "date": "2025-09-10",
+        "amount": 50000,
+        "content": "용돈",
+        "paymentMethod": "",
+        "type": "income",
+        "createdAt": "2025-09-10T08:00:00Z"
+      }
+    ]
+  }
+}
