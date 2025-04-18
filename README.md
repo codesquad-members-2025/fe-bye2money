@@ -1,1 +1,0 @@
-# fe-bye2money
