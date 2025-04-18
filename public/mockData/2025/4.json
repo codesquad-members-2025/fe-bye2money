@@ -1,0 +1,33 @@
+{
+  "year": "2025",
+  "month": "04",
+  "records": [
+    {
+      "id": "3847289478373827893982487",
+      "category": "취미",
+      "description": "펠트키트 구매",
+      "paymentMethod": "현대카드",
+      "amount": 20000,
+      "type": "income",
+      "timestamp": "2024-08-16T12:34:56Z"
+    },
+    {
+      "id": "3847289478373827842393982487",
+      "category": "취미",
+      "description": "펠트키트 구매2",
+      "paymentMethod": "현대카드",
+      "amount": 10000,
+      "type": "income",
+      "timestamp": "2024-08-15T12:34:56Z"
+    },
+    {
+      "id": "38432547289478373827893982487",
+      "category": "취미",
+      "description": "펠트키트 구매3",
+      "paymentMethod": "비씨카드",
+      "amount": 14000,
+      "type": "income",
+      "timestamp": "2024-08-14T12:34:56Z"
+    }
+  ]
+}
