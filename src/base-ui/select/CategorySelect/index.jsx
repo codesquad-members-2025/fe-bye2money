@@ -1,34 +1,7 @@
-import styled from "styled-components";
-import ResetButton from "../ResetButton";
+// CategorySelectButton 컴포넌트 OptionList컴포넌트 조립
+// 입력:옵션 선택 핸들러를 prop으로 전달 받는다. -> 유일한 FormBox의 연결고리
+// 이 카테고리 내부에서 드랍박스의 렌더링 여부 상태 갖고있어야함.
+// 옵션의 클릭, 삭제, 추가 이벤트도 이 컴포넌트에서 관리해야한다.
+//삭제 모달도 이 컴포넌트에서 관리해야할까...?
 
-const SelectButton = styled(ResetButton)`
-  font-weight: ${({ theme }) => theme.weight.semibold};
-  font-size: ${({ theme }) => theme.weight.size.xs};
-  color: ${({ theme }) => theme.color.token.text.weak};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-`;
-
-export default function CategorySelectButton({ method, onClick }) {
-  return (
-    <SelectButton onClick={onClick}>
-      <span>{method || "선택하세요"}</span>
-      <svg
-        width="10"
-        height="6"
-        viewBox="0 0 10 6"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9.1665 1L5.1665 5L1.1665 1"
-          stroke="black"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </SelectButton>
-  );
-}
+export default function CategorySelect() {}
