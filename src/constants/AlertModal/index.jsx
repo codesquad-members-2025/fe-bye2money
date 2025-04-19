@@ -1,20 +1,37 @@
 import { createContext, useContext, useState } from "react";
 import styled from "styled-components";
+import AlertModal from "./StyledAlertModal";
 
 const AlertModalContext = createContext();
 
 export function ModalProvider({ children }) {
-  const [modalContent, setModalContent] = useState(null);
+  const [modalState, setModalState] = useState({
+    content: null,
+    controller: null,
+  });
 
-  function openModal(modalContent) {
-    return;
+  function openModal(content, controller) {
+    setModalState({ content, controller });
   }
 
-  function closeModal() {}
+  function closeModal() {
+    setModalState({ content: null, controller: null });
+  }
+
   return (
-    <AlertModalContext.Provider value={(openModal, closeModal)}>
+    <AlertModalContext.Provider value={openModal}>
       {children}
-      {modalContent ? "모달 컴포넌트" : null}
+      {modalState.content ? (
+        <AlertModal
+          {...modalState.content}
+          dataController={modalState.controller}
+          closeModal={closeModal}
+        />
+      ) : null}
     </AlertModalContext.Provider>
   );
+}
+
+export function useModal() {
+  return useContext(AlertModalContext);
 }

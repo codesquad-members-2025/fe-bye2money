@@ -14,6 +14,8 @@ export default function AlertModal({
   selectedContent,
   confirmText = "삭제",
   cancelText = "취소",
+  dataController,
+  closeModal,
 }) {
   return (
     <ModalContainer>
@@ -33,8 +35,8 @@ export default function AlertModal({
       )}
 
       <ModalButtonGroup>
-        <ModalButton>{cancelText}</ModalButton>
-        <ModalButton>{confirmText}</ModalButton>
+        <ModalButton onClick={closeModal}>{cancelText}</ModalButton>
+        <ModalButton onClick={dataController}>{confirmText}</ModalButton>
       </ModalButtonGroup>
     </ModalContainer>
   );
