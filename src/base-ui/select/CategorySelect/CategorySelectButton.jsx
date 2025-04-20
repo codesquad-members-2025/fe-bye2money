@@ -1,7 +1,9 @@
-import styled from "styled-components";
-import ResetButton from "../ResetButton";
+//폼박스에서의 결제수단 선택 버튼
 
-const SelectButton = styled(ResetButton)`
+import styled from "styled-components";
+import DefaultButton from "../DefaultButton";
+
+const SelectButton = styled(DefaultButton)`
   font-weight: ${({ theme }) => theme.weight.semibold};
   font-size: ${({ theme }) => theme.weight.size.xs};
   color: ${({ theme }) => theme.color.token.text.weak};

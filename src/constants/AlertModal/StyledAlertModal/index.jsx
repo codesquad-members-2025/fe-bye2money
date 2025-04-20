@@ -14,16 +14,16 @@ export default function AlertModal({
   selectedContent,
   confirmText = "삭제",
   cancelText = "취소",
-  dataController,
+  onConfirm,
   closeModal,
 }) {
   return (
     <ModalContainer>
       <ModalMessage>{message}</ModalMessage>
 
-      {/* 입력이 필요한 경우에만 보여줄 예정 */}
+      {/* 드랍박스 결제 수단 추가할경우 */}
       {placeholder && <ModalInput placeholder={placeholder} />}
-      {/* 아래의 태그는 커스텀 태그로 변경해야함 */}
+      {/* 결제수단 삭제, 가계부 로그 삭제 할 경우 */}
       {selectedContent && (
         <ModalContentList>
           {Object.entries(selectedContent).map(([label, value]) => (
@@ -36,7 +36,7 @@ export default function AlertModal({
 
       <ModalButtonGroup>
         <ModalButton onClick={closeModal}>{cancelText}</ModalButton>
-        <ModalButton onClick={dataController}>{confirmText}</ModalButton>
+        <ModalButton onClick={onConfirm}>{confirmText}</ModalButton>
       </ModalButtonGroup>
     </ModalContainer>
   );

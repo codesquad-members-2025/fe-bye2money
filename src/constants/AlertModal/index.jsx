@@ -5,28 +5,21 @@ import AlertModal from "./StyledAlertModal";
 const AlertModalContext = createContext();
 
 export function ModalProvider({ children }) {
-  const [modalState, setModalState] = useState({
-    content: null,
-    controller: null,
-  });
+  const [modalContent, setModalContent] = useState(null);
 
-  function openModal(content, controller) {
-    setModalState({ content, controller });
+  function openModal(content) {
+    setModalContent(content);
   }
 
   function closeModal() {
-    setModalState({ content: null, controller: null });
+    setModalContent(null);
   }
 
   return (
     <AlertModalContext.Provider value={openModal}>
       {children}
-      {modalState.content ? (
-        <AlertModal
-          {...modalState.content}
-          dataController={modalState.controller}
-          closeModal={closeModal}
-        />
+      {modalContent ? (
+        <AlertModal {...modalContent} closeModal={closeModal} />
       ) : null}
     </AlertModalContext.Provider>
   );

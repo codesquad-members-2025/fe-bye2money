@@ -4,6 +4,7 @@ import DateInput from "../../base-ui/inputs/DateInput";
 import TypeToggle from "../../base-ui/inputs/TypeToggle";
 import AmountInput from "../../base-ui/inputs/AmountInput";
 import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
+import CategorySelect from "../../base-ui/select/CategorySelect";
 
 const StyledForm = styled.form`
   display: flex;
@@ -39,6 +40,13 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
         description={formState.description}
         onChange={(val) =>
           formDispatch({ type: "SET_DESCRIPTION", description: val })
+        }
+      />
+
+      <CategorySelect
+        method={formState.method}
+        onSelectOption={(method) =>
+          formDispatch({ type: "SET_METHOD", method: method })
         }
       />
     </StyledForm>
