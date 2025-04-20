@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const DefaultButton = styled.button`
   all: unset; /* 모든 스타일 초기화 (폰트, 배경 등) */
   cursor: pointer;

@@ -5,12 +5,18 @@ import methodReducer from "./methodReducer";
 
 export default function CategorySelect({ method, onSelectOption }) {
   const [categoryActivate, setCategoryActivate] = useState(false);
-  const [methods, dispatch] = useReducer(methodReducer, []);
+  const [methods, dispatch] = useReducer(methodReducer, [
+    "토스페이",
+    "카카오페이",
+  ]);
 
   return (
     <>
       <CategorySelectButton
-        onClick={() => setCategoryActivate((prev) => !prev)}
+        onClick={() => {
+          console.log("👆 버튼 클릭됨");
+          setCategoryActivate((prev) => !prev);
+        }}
         method={method}
       />
       {categoryActivate ? (

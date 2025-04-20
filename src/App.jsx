@@ -7,11 +7,10 @@ import { ModalProvider } from "./constants/AlertModal";
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle>
-        <ModalProvider>
-          <FormBox />
-        </ModalProvider>
-      </GlobalStyle>
+      <GlobalStyle />
+      <ModalProvider>
+        <FormBox />
+      </ModalProvider>
     </ThemeProvider>
   );
 }

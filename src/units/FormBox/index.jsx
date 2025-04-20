@@ -26,13 +26,15 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
         onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}
       />
       <TypeToggle
-        type={formState.type}
-        onClick={(type) => formDispatch({ type: "SET_TYPE", type: type })}
+        currentType={formState.currentType}
+        onClick={(type) =>
+          formDispatch({ type: "SET_CURRENTTYPE", currentType: type })
+        }
       />
       <AmountInput
         amount={formState.amount}
         onChange={(amount) => {
-          formDispatch({ type: "SET_AMOUNT", regDate: amount });
+          formDispatch({ type: "SET_AMOUNT", amount });
         }}
       />
 

@@ -37,8 +37,8 @@ function reducer(state, action) {
     case "SET_REGDATE": {
       return { ...state, regDate: action.regDate };
     }
-    case "SET_TYPE": {
-      return { ...state, type: action.type };
+    case "SET_CURRENTTYPE": {
+      return { ...state, currentType: action.currentType };
     }
     case "SET_AMOUNT": {
       return { ...state, amount: action.amount };
@@ -60,7 +60,7 @@ function getInitialArg(selectedTransactions = null) {
     id: "",
     month: "",
     regDate: getToday(),
-    type: "earning",
+    currentType: "expense",
     amount: "",
     description: "",
     method: "",

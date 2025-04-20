@@ -30,10 +30,10 @@ export default function DateInput({ value, onChange }) {
     <RedDateBox>
       <SmallLightText>{dateLabelText}</SmallLightText>
       <InputField
-        {...inputProps}
+        type="text"
+        className="date-input"
+        placeholder="YYYY-MM-DD"
         value={value}
-        min={minDate}
-        max={maxDate}
         onChange={(e) => onChange(e.target.value)}
       />
     </RedDateBox>

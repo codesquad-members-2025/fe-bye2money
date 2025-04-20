@@ -9,8 +9,8 @@ const OptionUl = styled.ul`
 `;
 
 const DefaultLi = styled.li`
-  font-weight: ${({ theme }) => theme.weight.light};
-  font-size: ${({ theme }) => theme.weight.size.xs};
+  font-weight: ${({ theme }) => theme.font.weight.light};
+  font-size: ${({ theme }) => theme.font.size.xs};
   color: ${({ theme }) => theme.color.token.text.default};
   display: flex;
   padding: 16px 24px;
@@ -31,8 +31,8 @@ const AddLi = styled(DefaultLi)`
 export default function OptionList({
   options,
   onSelectOption,
-  onDelete,
   onAdd,
+  onDelete,
 }) {
   const openModal = useModal();
   const addText = "추가하기";

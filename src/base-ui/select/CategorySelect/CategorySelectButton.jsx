@@ -4,8 +4,8 @@ import styled from "styled-components";
 import DefaultButton from "../DefaultButton";
 
 const SelectButton = styled(DefaultButton)`
-  font-weight: ${({ theme }) => theme.weight.semibold};
-  font-size: ${({ theme }) => theme.weight.size.xs};
+  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  font-size: ${({ theme }) => theme.font.size.xs};
   color: ${({ theme }) => theme.color.token.text.weak};
   display: flex;
   align-items: center;
@@ -14,6 +14,8 @@ const SelectButton = styled(DefaultButton)`
 `;
 
 export default function CategorySelectButton({ method, onClick }) {
+  console.log("🔁 버튼 렌더링");
+
   return (
     <SelectButton onClick={onClick}>
       <span>{method || "선택하세요"}</span>
@@ -27,8 +29,8 @@ export default function CategorySelectButton({ method, onClick }) {
         <path
           d="M9.1665 1L5.1665 5L1.1665 1"
           stroke="black"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </SelectButton>
