@@ -2,8 +2,8 @@
 import styled from "styled-components";
 
 const InputField = styled.input`
-  font-weight: ${({ theme }) => theme.weight.semibold};
-  font-size: ${({ theme }) => theme.weight.size.xs};
+  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  font-size: ${({ theme }) => theme.font.size.xs};
   color: ${({ theme }) => theme.color.token.text.default};
   border: none;
   outline: none;

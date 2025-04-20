@@ -4,10 +4,11 @@ import DateInput from "../../base-ui/inputs/DateInput";
 import TypeToggle from "../../base-ui/inputs/TypeToggle";
 import AmountInput from "../../base-ui/inputs/AmountInput";
 import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
+import CategorySelect from "../../base-ui/select/CategorySelect";
 
 const StyledForm = styled.form`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   padding: 16px;
 `;
@@ -25,13 +26,15 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
         onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}
       />
       <TypeToggle
-        type={formState.type}
-        onClick={(type) => formDispatch({ type: "SET_TYPE", type: type })}
+        currentType={formState.currentType}
+        onClick={(type) =>
+          formDispatch({ type: "SET_CURRENTTYPE", currentType: type })
+        }
       />
       <AmountInput
         amount={formState.amount}
         onChange={(amount) => {
-          formDispatch({ type: "SET_AMOUNT", regDate: amount });
+          formDispatch({ type: "SET_AMOUNT", amount });
         }}
       />
 
@@ -39,6 +42,13 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
         description={formState.description}
         onChange={(val) =>
           formDispatch({ type: "SET_DESCRIPTION", description: val })
+        }
+      />
+
+      <CategorySelect
+        method={formState.method}
+        onSelectOption={(method) =>
+          formDispatch({ type: "SET_METHOD", method: method })
         }
       />
     </StyledForm>

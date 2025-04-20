@@ -1,19 +1,28 @@
-import styled from "styled-components";
-import ResetButton from "../ResetButton";
+//폼박스에서의 결제수단 선택 버튼
 
-const SelectButton = styled(ResetButton)`
-  font-weight: ${({ theme }) => theme.weight.semibold};
-  font-size: ${({ theme }) => theme.weight.size.xs};
+import styled from "styled-components";
+import DefaultButton from "../DefaultButton";
+
+const SelectButton = styled(DefaultButton)`
+  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  font-size: ${({ theme }) => theme.font.size.xs};
   color: ${({ theme }) => theme.color.token.text.weak};
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none; /* ✅ 파란 테두리 완전히 제거 */
+  }
 `;
 
 export default function CategorySelectButton({ method, onClick }) {
+  console.log("🔁 버튼 렌더링");
+
   return (
-    <SelectButton onClick={onClick}>
+    <SelectButton type="button" onClick={onClick}>
       <span>{method || "선택하세요"}</span>
       <svg
         width="10"
@@ -25,8 +34,8 @@ export default function CategorySelectButton({ method, onClick }) {
         <path
           d="M9.1665 1L5.1665 5L1.1665 1"
           stroke="black"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </SelectButton>

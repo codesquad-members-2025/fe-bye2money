@@ -1,4 +1,3 @@
-// useFormLogic.js
 import { useReducer } from "react";
 
 export default function useFormLogic(
@@ -38,8 +37,8 @@ function reducer(state, action) {
     case "SET_REGDATE": {
       return { ...state, regDate: action.regDate };
     }
-    case "SET_TYPE": {
-      return { ...state, type: action.type };
+    case "SET_CURRENTTYPE": {
+      return { ...state, currentType: action.currentType };
     }
     case "SET_AMOUNT": {
       return { ...state, amount: action.amount };
@@ -48,7 +47,7 @@ function reducer(state, action) {
       return { ...state, description: action.description };
     }
     case "SET_METHOD": {
-      state.method = action.method;
+      return { ...state, method: action.method };
     }
     case "SET_CLASSIFICATION": {
       state.classification = action.classification;
@@ -61,13 +60,14 @@ function getInitialArg(selectedTransactions = null) {
     id: "",
     month: "",
     regDate: getToday(),
-    type: "earning",
+    currentType: "expense",
     amount: "",
     description: "",
     method: "",
     classification: "",
   };
 
+  //로그 편집할때는 기존의 선택한 로그데이터가 초기데이터로 초기화
   if (selectedTransactions) {
     initialArg = selectedTransactions;
   }
