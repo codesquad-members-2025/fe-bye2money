@@ -57,7 +57,10 @@ export default function OptionList({
       return (
         <OptionLi key={option} onClick={() => onSelect(option)}>
           <div>{option}</div>
-          <DefaultButton onClick={() => openModal(deleteModalDataObj)}>
+          <DefaultButton
+            type="button"
+            onClick={() => openModal(deleteModalDataObj)}
+          >
             <svg
               width="24"
               height="25"
@@ -68,14 +71,14 @@ export default function OptionList({
               <path
                 d="M7.75732 8.25735L16.2426 16.7426"
                 stroke="#E93B5A"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M7.75732 16.7426L16.2426 8.25736"
                 stroke="#E93B5A"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </DefaultButton>

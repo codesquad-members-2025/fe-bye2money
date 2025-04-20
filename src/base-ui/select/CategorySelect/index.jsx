@@ -19,14 +19,14 @@ export default function CategorySelect({ method, onSelectOption }) {
         }}
         method={method}
       />
-      {categoryActivate ? (
+      {categoryActivate && (
         <OptionList
           options={methods}
           onSelectOption={onSelectOption}
           onAdd={(method) => dispatch({ type: "ADD", method: method })}
           onDelete={(method) => dispatch({ type: "DELETE", method: method })}
         />
-      ) : null}
+      )}
     </>
   );
 }

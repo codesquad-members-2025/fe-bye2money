@@ -17,7 +17,7 @@ export default function CategorySelectButton({ method, onClick }) {
   console.log("🔁 버튼 렌더링");
 
   return (
-    <SelectButton onClick={onClick}>
+    <SelectButton type="button" onClick={onClick}>
       <span>{method || "선택하세요"}</span>
       <svg
         width="10"
