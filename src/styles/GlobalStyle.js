@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle`
 
   *, *::before, *::after {
     box-sizing: border-box;
+    border:1px solid red;
+    
   }
 
 input,

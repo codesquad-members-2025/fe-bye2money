@@ -11,6 +11,11 @@ const SelectButton = styled(DefaultButton)`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none; /* ✅ 파란 테두리 완전히 제거 */
+  }
 `;
 
 export default function CategorySelectButton({ method, onClick }) {

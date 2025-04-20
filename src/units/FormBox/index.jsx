@@ -8,7 +8,7 @@ import CategorySelect from "../../base-ui/select/CategorySelect";
 
 const StyledForm = styled.form`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   padding: 16px;
 `;
