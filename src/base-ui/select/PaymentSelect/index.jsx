@@ -1,6 +1,6 @@
 import { useState, useReducer } from "react";
 import styled from "styled-components";
-import CategorySelectButton from "./CategorySelectButton";
+import CategorySelectButton from "../CategorySelect/CategorySelectButton";
 import OptionList from "./OptionList";
 import methodReducer from "./methodReducer";
 
@@ -8,7 +8,7 @@ const OptionWrapper = styled.div`
   position: relative; // 기준이 되는 요소
 `;
 
-export default function CategorySelect({ method, onSelectOption }) {
+export default function PaymentSelect({ method, onSelectOption }) {
   const [categoryActivate, setCategoryActivate] = useState(false);
   const [methods, dispatch] = useReducer(methodReducer, [
     "토스페이",

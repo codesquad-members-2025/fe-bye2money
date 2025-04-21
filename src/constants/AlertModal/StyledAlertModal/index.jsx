@@ -55,7 +55,7 @@ export default function AlertModal({
             onConfirm(inputValue);
             closeModal();
           }}
-          disabled={isDisabled}
+          disabled={placeholder ? isDisabled : false}
         >
           {confirmText}
         </ModalButton>
