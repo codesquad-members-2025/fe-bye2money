@@ -48,7 +48,13 @@ export default function AlertModal({
         <ModalButton type="button" onClick={closeModal}>
           {cancelText}
         </ModalButton>
-        <ModalButton type="button" onClick={() => onConfirm(inputValue)}>
+        <ModalButton
+          type="button"
+          onClick={() => {
+            onConfirm(inputValue);
+            closeModal();
+          }}
+        >
           {confirmText}
         </ModalButton>
       </ModalButtonGroup>
