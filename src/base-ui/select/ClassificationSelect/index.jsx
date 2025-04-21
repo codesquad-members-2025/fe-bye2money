@@ -24,7 +24,13 @@ export default function ClassificationSelect({
         input={classification}
       />
       {categoryActivate && (
-        <OptionList options={categories} onSelectOption={onSelectOption} />
+        <OptionList
+          options={categories}
+          onSelectOption={(option) => {
+            onSelectOption(option);
+            setCategoryActivate((prev) => !prev);
+          }}
+        />
       )}
     </OptionWrapper>
   );
