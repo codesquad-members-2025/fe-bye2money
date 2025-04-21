@@ -36,7 +36,7 @@ export default function DateInput({ value, onChange }) {
         className="date-input"
         placeholder="YYYY.MM.DD"
         value={value}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e)}
       />
     </RedDateBox>
   );
