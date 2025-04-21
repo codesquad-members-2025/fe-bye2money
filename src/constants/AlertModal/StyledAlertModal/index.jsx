@@ -8,6 +8,8 @@ import {
   ModalContentItem,
 } from "./Styled";
 
+import { useState } from "react";
+
 export default function AlertModal({
   message,
   placeholder,
@@ -17,12 +19,20 @@ export default function AlertModal({
   onConfirm,
   closeModal,
 }) {
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <ModalContainer>
       <ModalMessage>{message}</ModalMessage>
 
       {/* 드랍박스 결제 수단 추가할경우 */}
-      {placeholder && <ModalInput placeholder={placeholder} />}
+      {placeholder && (
+        <ModalInput
+          value={inputValue}
+          onChange={(e) => setInputValue(() => e.target.value)}
+          placeholder={placeholder}
+        />
+      )}
       {/* 결제수단 삭제, 가계부 로그 삭제 할 경우 */}
       {selectedContent && (
         <ModalContentList>
@@ -35,8 +45,12 @@ export default function AlertModal({
       )}
 
       <ModalButtonGroup>
-        <ModalButton onClick={closeModal}>{cancelText}</ModalButton>
-        <ModalButton onClick={onConfirm}>{confirmText}</ModalButton>
+        <ModalButton type="button" onClick={closeModal}>
+          {cancelText}
+        </ModalButton>
+        <ModalButton type="button" onClick={() => onConfirm(inputValue)}>
+          {confirmText}
+        </ModalButton>
       </ModalButtonGroup>
     </ModalContainer>
   );
