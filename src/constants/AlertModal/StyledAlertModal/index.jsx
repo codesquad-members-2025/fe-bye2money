@@ -20,6 +20,7 @@ export default function AlertModal({
   closeModal,
 }) {
   const [inputValue, setInputValue] = useState("");
+  const isDisabled = inputValue.trim() === "";
 
   return (
     <ModalContainer>
@@ -54,6 +55,7 @@ export default function AlertModal({
             onConfirm(inputValue);
             closeModal();
           }}
+          disabled={isDisabled}
         >
           {confirmText}
         </ModalButton>
