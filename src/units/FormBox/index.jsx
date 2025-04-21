@@ -51,6 +51,13 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
           formDispatch({ type: "SET_METHOD", method: method })
         }
       />
+
+      <Classification
+        classification={formState.classification}
+        onSelectOption={(option) =>
+          formDispatch({ type: "SET_CLASSIFICATION", classification: option })
+        }
+      />
     </StyledForm>
   );
 }
