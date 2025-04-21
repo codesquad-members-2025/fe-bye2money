@@ -75,7 +75,8 @@ function getInitialArg(selectedTransactions = null) {
 }
 
 function getToday() {
-  return new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
+  const date = new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
+  return date.replace(/-/g, ".");
 }
 
 function getCurrentMonth(dateStr) {
