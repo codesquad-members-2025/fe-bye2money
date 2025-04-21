@@ -21,7 +21,7 @@ export default function PaymentSelect({ method, onSelectOption }) {
         onClick={() => {
           setCategoryActivate((prev) => !prev);
         }}
-        method={method}
+        input={method}
       />
       {categoryActivate && (
         <OptionList

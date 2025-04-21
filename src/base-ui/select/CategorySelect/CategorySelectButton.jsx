@@ -18,12 +18,10 @@ const SelectButton = styled(DefaultButton)`
   }
 `;
 
-export default function CategorySelectButton({ method, onClick }) {
-  console.log("🔁 버튼 렌더링");
-
+export default function CategorySelectButton({ input, onClick }) {
   return (
     <SelectButton type="button" onClick={onClick}>
-      <span>{method || "선택하세요"}</span>
+      <span>{input || "선택하세요"}</span>
       <svg
         width="10"
         height="6"
