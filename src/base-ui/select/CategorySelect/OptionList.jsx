@@ -3,6 +3,7 @@ import DefaultButton from "../DefaultButton";
 import { useModal } from "../../../constants/AlertModal";
 
 const OptionUl = styled.ul`
+  position: absolute;
   list-style: none;
   padding: 0;
   margin: 0;
