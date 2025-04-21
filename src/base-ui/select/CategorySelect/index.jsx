@@ -27,7 +27,10 @@ export default function CategorySelect({ method, onSelectOption }) {
       {categoryActivate && (
         <OptionList
           options={methods}
-          onSelectOption={onSelectOption}
+          onSelectOption={(option) => {
+            onSelectOption(option);
+            setCategoryActivate(false);
+          }}
           onAdd={(method) => dispatch({ type: "ADD", method: method })}
           onDelete={(method) => dispatch({ type: "DELETE", method: method })}
         />
