@@ -1,40 +1,42 @@
 import styled from "styled-components";
 import InputField from "../InputField";
-import { useState } from "react";
 
 const RedDateBox = styled.div`
   display: flex;
   gap: 4px;
 `;
-const SmallLightText = styled.span`
-  font-family: ${({ theme }) => theme.font.sans};
-  font-weight: ${({ theme }) => theme.font.weight.light};
-  font-size: ${({ theme }) => theme.font.size.xs};
-  line-height: ${({ theme }) => theme.font.lineHeight.md};
-  color: ${({ theme }) => theme.color.token.text.default};
-`;
-
-const dateLabelText = "일자";
-
-const inputField = {
-  type: "date",
-  id: "RegDate",
-  name: "RegDate",
-  minDate: "1800-01-01",
-  maxDate: "4000-01-01",
-};
-
+// const SmallLightText = styled.span`
+//   font-family: ${({ theme }) => theme.font.sans};
+//   font-weight: ${({ theme }) => theme.font.weight.light};
+//   font-size: ${({ theme }) => theme.font.size.xs};
+//   line-height: ${({ theme }) => theme.font.lineHeight.md};
+//   color: ${({ theme }) => theme.color.token.text.default};
+// `;
 export default function DateInput({ value, onChange }) {
-  const { minDate, maxDate, ...inputProps } = inputField;
+  const handleChange = (e) => {
+    const onlyNums = e.target.value.replace(/\D/g, "").slice(0, 8); // 숫자만, 최대 8자리
+    let formatted = onlyNums;
+
+    if (onlyNums.length > 4 && onlyNums.length <= 6) {
+      formatted = `${onlyNums.slice(0, 4)}.${onlyNums.slice(4)}`;
+    } else if (onlyNums.length > 6) {
+      formatted = `${onlyNums.slice(0, 4)}.${onlyNums.slice(
+        4,
+        6
+      )}.${onlyNums.slice(6)}`;
+    }
+
+    onChange(formatted);
+  };
+
   return (
     <RedDateBox>
-      <SmallLightText>{dateLabelText}</SmallLightText>
       <InputField
         type="text"
         className="date-input"
-        placeholder="YYYY-MM-DD"
+        placeholder="YYYY.MM.DD"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => handleChange(e)}
       />
     </RedDateBox>
   );
