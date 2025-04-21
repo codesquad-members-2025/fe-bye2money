@@ -60,7 +60,10 @@ export default function OptionList({
           <div>{option}</div>
           <DefaultButton
             type="button"
-            onClick={() => openModal(deleteModalDataObj)}
+            onClick={(e) => {
+              e.stopPropagation();
+              openModal(deleteModalDataObj);
+            }}
           >
             <svg
               width="24"
