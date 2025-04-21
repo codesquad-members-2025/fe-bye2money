@@ -50,7 +50,7 @@ function reducer(state, action) {
       return { ...state, method: action.method };
     }
     case "SET_CLASSIFICATION": {
-      state.classification = action.classification;
+      return { ...state, classification: action.classification };
     }
   }
 }
