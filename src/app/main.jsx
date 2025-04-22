@@ -5,15 +5,11 @@ import AppRouter from './router.jsx';
 import globalStyle from './theme/globalStyle';
 import theme from './theme/theme';
 
-import App from './App.jsx';
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <Global styles={globalStyle} />
-      <AppRouter>
-        <App />
-      </AppRouter>
+      <AppRouter />
     </ThemeProvider>
   </StrictMode>
 );

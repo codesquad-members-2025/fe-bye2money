@@ -21,7 +21,7 @@ const theme = {
   colors: {
     // Grayscale colors
     grayscale50: '#FFFFFF',
-    grayscale100: '#F8CFD',
+    grayscale100: '#FBFCFD',
     grayscale200: '#F1F4F8',
     grayscale300: '#777D84',
     grayscale400: '#000000',
@@ -31,28 +31,35 @@ const theme = {
     pastelPorsche: '#E39D5D',
     pastelChenin: '#D7CA6B',
     pastelCaper: '#AACD7E',
-    pastelCruise: '#8CFDFA',
+    pastelCruise: '#BCDFD3',
     pastelOnahu: '#C5E0EB',
-    pastelGlacier: '#D7D78F',
+    pastelGlacier: '#7DB7BF',
     pastelSeagull: '#79B2CA',
     pastelJordyBlue: '#73A4D0',
-    pastelPerano: '#A78E9B',
-    pastelPerfume: '#BD8AE1',
-    pastelLavenderPink: '#F08D03',
+    pastelPerano: '#A7B9E9',
+    pastelPerfume: '#BDA6E1',
+    pastelLavenderPink: '#F0B0D3',
     pastelAmaranth: '#E93B5A',
-    pastelChestnut: '#C04C46',
+    pastelChestnut: '#C04646',
 
     // Neutral colors
-    neutralSurfaceDefault: '#F0F0F0',
-    neutralTextDefault: '#333333',
-    neutralTextWeak: '#777777',
-    neutralTextRevDefault: '#AAAAAA',
-    neutralBorderDefault: '#DDDDDD',
+    neutralSurfaceDefault: '#FFFFFF',
+    neutralSurfaceWeak: '##FBFCFD',
+    neutralTextDefault: '#000000',
+    neutralTextWeak: '##777D84',
+    neutralTextRevDefault: '#FFFFFF',
+    neutralBorderDefault: '#000000',
 
     // Brand colors
-    brandSurfaceDefault: '#F0F0F0',
+    brandSurfaceDefault: '#FFFFFF',
     brandTextIncome: '#79B2CA',
-    brandTextExpense: '#E93B5A',
+    brandTextExpense: '##E93B5A',
+
+    //danger colors
+    dangerSurfaceDefault: '#E93B5A',
+    dangerTextDefault: '#E93B5A',
+    dangerTextRevDefault: '#FFFFFF',
+    dangerBorderDefault: '#E93B5A',
   },
 };
 
@@ -62,30 +69,27 @@ theme.typography = {
     fontFamily: theme.fonts.serif,
     fontSize: theme.fontSizes.large,
     lineHeight: theme.lineHeights.large,
-    fontWeight: 'normal',
   },
   serif24: {
     fontFamily: theme.fonts.serif,
     fontSize: theme.fontSizes.medium,
     lineHeight: theme.lineHeights.medium,
-    fontWeight: 'normal',
   },
-  serif16: {
+  serif14: {
     fontFamily: theme.fonts.serif,
-    fontSize: theme.fontSizes.small,
-    lineHeight: theme.lineHeights.small,
-    fontWeight: 'normal',
+    fontSize: theme.fontSizes.xSmall,
+    lineHeight: theme.lineHeights.xxSmall,
   },
   semibold16: {
     fontFamily: theme.fonts.semibold,
     fontSize: theme.fontSizes.small,
     lineHeight: theme.lineHeights.small,
-    fontWeight: '600', // Semibold
+    fontWeight: '600',
   },
   semibold14: {
     fontFamily: theme.fonts.semibold,
     fontSize: theme.fontSizes.xSmall,
-    lineHeight: theme.lineHeights.xSmall,
+    lineHeight: theme.lineHeights.xxSmall,
     fontWeight: '600',
   },
   semibold12: {
@@ -97,19 +101,19 @@ theme.typography = {
   light16: {
     fontFamily: theme.fonts.light,
     fontSize: theme.fontSizes.small,
-    lineHeight: theme.lineHeights.small,
+    lineHeight: theme.lineHeights.medium,
     fontWeight: '300',
   },
   light14: {
     fontFamily: theme.fonts.light,
     fontSize: theme.fontSizes.xSmall,
-    lineHeight: theme.lineHeights.xSmall,
+    lineHeight: theme.lineHeights.small,
     fontWeight: '300',
   },
   light12: {
     fontFamily: theme.fonts.light,
     fontSize: theme.fontSizes.xxSmall,
-    lineHeight: theme.lineHeights.xxSmall,
+    lineHeight: theme.lineHeights.small,
     fontWeight: '300',
   },
 };
