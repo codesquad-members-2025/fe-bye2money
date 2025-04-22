@@ -69,7 +69,7 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
           formDispatch({ type: "SET_CLASSIFICATION", classification: option })
         }
       />
-      <SubmitButton />
+      <SubmitButton isValid={isValid} />
     </StyledForm>
   );
 }

@@ -3,7 +3,7 @@ function normalizeDate(regDate) {
   return { year, month, day };
 }
 
-export default function handleChange(e, onChange) {
+function handleChange(e, onChange) {
   const onlyNums = e.target.value.replace(/\D/g, "").slice(0, 8); // 숫자만 입력 (최대 8자리)
 
   // 자리수 기반 유효성 필터링
@@ -58,3 +58,5 @@ export default function handleChange(e, onChange) {
   const normalizedDate = normalizeDate(formatted);
   onChange({ regDate: formatted, ...normalizedDate });
 }
+
+export { handleChange, normalizeDate };

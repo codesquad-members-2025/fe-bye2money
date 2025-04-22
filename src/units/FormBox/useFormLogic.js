@@ -1,4 +1,5 @@
-import { useReducer } from "react";
+import { useReducer, useState, useEffect } from "react";
+import { normalizeDate } from "../../base-ui/inputs/DateInput/inputDateHandler";
 
 export default function useFormLogic(
   currentMonth,
@@ -9,11 +10,12 @@ export default function useFormLogic(
     reducer,
     getInitialArg(selectedTransactions)
   );
+  const [isValid, setIsValid] = useState(false);
 
-  const isValid = () => {
-    if (!formState.regDate || formState.regDate.length !== 8) {
+  const getIsValid = () => {
+    if (!formState.regDate || formState.regDate.length !== 10) {
       return { ok: false, reason: "등록 날짜를 입력해주세요" };
-    } else if (!formState.amount || formState.amount === 0) {
+    } else if (!formState.amount) {
       return { ok: false, reason: "금액을 입력해주세요" };
     } else if (!formState.description) {
       return { ok: false, reason: "내용을 입력해주세요" };
@@ -29,7 +31,7 @@ export default function useFormLogic(
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!isValid()) return;
+    if (!isValid) return;
     const currentInputMonth = getCurrentMonth(formState.regDate);
 
     const response = await postToServer(formData);
@@ -37,6 +39,10 @@ export default function useFormLogic(
       dispatch({ type: "REGISTER", payload: formData });
     }
   };
+
+  useEffect(() => {
+    setIsValid(getIsValid().ok);
+  }, [formState]);
 
   return {
     formState,
@@ -53,7 +59,7 @@ function reducer(state, action) {
         ...state,
         regDate: action.regDate,
         year: action.year,
-        month: action.year,
+        month: action.month,
         day: action.day,
       };
     }
@@ -77,16 +83,14 @@ function reducer(state, action) {
 
 function getInitialArg(selectedTransactions = null) {
   let initialArg = {
+    ...normalizeDate(getToday()),
     id: "",
-    month: "",
     regDate: getToday(),
     currentType: "expense",
     amount: "",
     description: "",
     method: "",
     classification: "",
-    year: "",
-    day: "",
   };
 
   //로그 편집할때는 기존의 선택한 로그데이터가 초기데이터로 초기화
