@@ -10,7 +10,7 @@ export default function AppRoutes() {
       <Route path="/" element={<MainPage />} />
       <Route index element={<LogView />} />
       <Route path="calendar" element={<CalendarView />} />
-      <Route path="StatisticsView" element={<StatisticsView />} />
+      <Route path="statisticsView" element={<StatisticsView />} />
     </Routes>
   );
 }
