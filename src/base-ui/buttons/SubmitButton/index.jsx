@@ -17,7 +17,7 @@ const GhostButton = styled.button`
 
 export default function SubmitButton() {
   return (
-    <GhostButton type="button">
+    <GhostButton type="submit">
       <svg
         width="40"
         height="41"

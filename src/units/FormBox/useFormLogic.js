@@ -11,10 +11,22 @@ export default function useFormLogic(
   );
 
   const isValid = () => {
-    Object.values(formState).every((formData) => formData !== "");
+    if (!formState.regDate || formState.regDate.length !== 8) {
+      return { ok: false, reason: "등록 날짜를 입력해주세요" };
+    } else if (!formState.amount || formState.amount === 0) {
+      return { ok: false, reason: "금액을 입력해주세요" };
+    } else if (!formState.description) {
+      return { ok: false, reason: "내용을 입력해주세요" };
+    } else if (!formState.method) {
+      return { ok: false, reason: "결제수단을 선택해주세요" };
+    } else if (!formState.classification) {
+      return { ok: false, reason: "분류를 선택해주세요" };
+    } else {
+      return { ok: true };
+    }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isValid()) return;
@@ -37,7 +49,13 @@ export default function useFormLogic(
 function reducer(state, action) {
   switch (action.type) {
     case "SET_REGDATE": {
-      return { ...state, regDate: action.regDate };
+      return {
+        ...state,
+        regDate: action.regDate,
+        year: action.year,
+        month: action.year,
+        day: action.day,
+      };
     }
     case "SET_CURRENTTYPE": {
       return { ...state, currentType: action.currentType };
@@ -67,6 +85,8 @@ function getInitialArg(selectedTransactions = null) {
     description: "",
     method: "",
     classification: "",
+    year: "",
+    day: "",
   };
 
   //로그 편집할때는 기존의 선택한 로그데이터가 초기데이터로 초기화
