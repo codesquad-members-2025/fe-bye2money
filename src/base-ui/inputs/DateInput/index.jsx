@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import InputField from "../InputField";
-
+import { InputField } from "../InputField";
 const RedDateBox = styled.div`
   display: flex;
   gap: 4px;

@@ -6,6 +6,7 @@ import AmountInput from "../../base-ui/inputs/AmountInput";
 import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
 import PaymentSelect from "../../base-ui/select/PaymentSelect";
 import ClassificationSelect from "../../base-ui/select/ClassificationSelect";
+import SubmitButton from "../../base-ui/buttons/SubmitButton";
 
 const StyledForm = styled.form`
   display: flex;
@@ -60,6 +61,7 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
           formDispatch({ type: "SET_CLASSIFICATION", classification: option })
         }
       />
+      <SubmitButton />
     </StyledForm>
   );
 }

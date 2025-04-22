@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import InputField from "../InputField";
+import { InputField } from "../InputField";
 
 const AmountWrapper = styled.div`
   display: flex;

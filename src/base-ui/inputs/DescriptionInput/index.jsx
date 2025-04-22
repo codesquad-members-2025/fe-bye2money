@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import InputField from "../InputField";
+import { TextAreaField } from "../InputField";
 
 export default function DescriptionInput({ description, onChange }) {
   const maxLength = 32;
   const placeholderText = "입력하세요";
   return (
-    <InputField
+    <TextAreaField
       maxLength={maxLength}
       value={description}
       placeholder={placeholderText}
