@@ -22,7 +22,7 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
     selectedTransactions
   );
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
       <DateInput
         value={formState.regDate}
         onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}

@@ -15,6 +15,8 @@ export default function useFormLogic(
   };
 
   const handleSubmit = async () => {
+    e.preventDefault();
+
     if (!isValid()) return;
     const currentInputMonth = getCurrentMonth(formState.regDate);
 
