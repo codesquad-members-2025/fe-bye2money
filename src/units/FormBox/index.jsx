@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import useFormLogic from "./useFormLogic";
-import DateInput from "../../core/inputs/DateInput";
-import TypeToggle from "../../core/inputs/TypeToggle";
-import AmountInput from "../../core/inputs/AmountInput";
-import DescriptionInput from "../../core/inputs/DescriptionInput";
+import DateInput from "../../base-ui/inputs/DateInput";
+import TypeToggle from "../../base-ui/inputs/TypeToggle";
+import AmountInput from "../../base-ui/inputs/AmountInput";
+import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
+import PaymentSelect from "../../base-ui/select/PaymentSelect";
+import ClassificationSelect from "../../base-ui/select/ClassificationSelect";
+import SubmitButton from "../../base-ui/buttons/SubmitButton";
 
 const StyledForm = styled.form`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   padding: 16px;
 `;
@@ -22,25 +25,43 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
     <StyledForm>
       <DateInput
         value={formState.regDate}
-        onChange={(val) => formDispatch({ type: "PUT_REGDATE", regDate: val })}
+        onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}
       />
       <TypeToggle
-        type={formState.type}
-        onClick={(type) => formDispatch({ type: "PUT_TYPE", type: type })}
+        currentType={formState.currentType}
+        onClick={(type) =>
+          formDispatch({ type: "SET_CURRENTTYPE", currentType: type })
+        }
       />
       <AmountInput
         amount={formState.amount}
         onChange={(amount) => {
-          formDispatch({ type: "PUT_AMOUNT", regDate: amount });
+          formDispatch({ type: "SET_AMOUNT", amount });
         }}
       />
 
       <DescriptionInput
         description={formState.description}
         onChange={(val) =>
-          formDispatch({ type: "PUT_DESCRIPTION", description: val })
+          formDispatch({ type: "SET_DESCRIPTION", description: val })
         }
       />
+
+      <PaymentSelect
+        method={formState.method}
+        onSelectOption={(method) =>
+          formDispatch({ type: "SET_METHOD", method: method })
+        }
+      />
+
+      <ClassificationSelect
+        classification={formState.classification}
+        transactionType={formState.currentType}
+        onSelectOption={(option) =>
+          formDispatch({ type: "SET_CLASSIFICATION", classification: option })
+        }
+      />
+      <SubmitButton />
     </StyledForm>
   );
 }

@@ -1,4 +1,3 @@
-// useFormLogic.js
 import { useReducer } from "react";
 
 export default function useFormLogic(
@@ -12,7 +11,7 @@ export default function useFormLogic(
   );
 
   const isValid = () => {
-    // 유효성 검사 로직
+    Object.values(formState).every((formData) => formData !== "");
   };
 
   const handleSubmit = async () => {
@@ -35,23 +34,23 @@ export default function useFormLogic(
 
 function reducer(state, action) {
   switch (action.type) {
-    case "PUT_REGDATE": {
+    case "SET_REGDATE": {
       return { ...state, regDate: action.regDate };
     }
-    case "PUT_TYPE": {
-      return { ...state, type: action.type };
+    case "SET_CURRENTTYPE": {
+      return { ...state, currentType: action.currentType };
     }
-    case "PUT_AMOUNT": {
+    case "SET_AMOUNT": {
       return { ...state, amount: action.amount };
     }
-    case "PUT_DESCRIPTION": {
-      state.description = action.description;
+    case "SET_DESCRIPTION": {
+      return { ...state, description: action.description };
     }
-    case "PUT_METHOD": {
-      state.method = action.method;
+    case "SET_METHOD": {
+      return { ...state, method: action.method };
     }
-    case "PUT_CLASSIFICATION": {
-      state.classification = action.classification;
+    case "SET_CLASSIFICATION": {
+      return { ...state, classification: action.classification };
     }
   }
 }
@@ -61,13 +60,14 @@ function getInitialArg(selectedTransactions = null) {
     id: "",
     month: "",
     regDate: getToday(),
-    type: "earning",
+    currentType: "expense",
     amount: "",
     description: "",
     method: "",
     classification: "",
   };
 
+  //로그 편집할때는 기존의 선택한 로그데이터가 초기데이터로 초기화
   if (selectedTransactions) {
     initialArg = selectedTransactions;
   }
@@ -75,7 +75,8 @@ function getInitialArg(selectedTransactions = null) {
 }
 
 function getToday() {
-  return new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
+  const date = new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
+  return date.replace(/-/g, ".");
 }
 
 function getCurrentMonth(dateStr) {

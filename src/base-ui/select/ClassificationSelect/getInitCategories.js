@@ -1,0 +1,21 @@
+const expenseCategories = [
+  "생활",
+  "식비",
+  "교통",
+  "쇼핑/뷰티",
+  "의료/건강",
+  "문화/여가",
+  "미분류",
+];
+
+const incomeCategories = ["월급", "용돈", "기타 수입"];
+export default function getInitCategories(transactionType) {
+  switch (transactionType) {
+    case "earning": {
+      return incomeCategories;
+    }
+    case "expense": {
+      return expenseCategories;
+    }
+  }
+}

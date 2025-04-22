@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import InputField from "../InputField";
+import { InputField } from "../InputField";
 
 const AmountWrapper = styled.div`
   display: flex;
@@ -12,11 +12,11 @@ const AmountInputWrapper = styled(InputField)`
 `;
 
 const CurrencyUnit = styled.div`
-  font-weight: ${({ theme }) => theme.weight.light};
-  font-size: ${({ theme }) => theme.weight.size.xs};
+  font-weight: ${({ theme }) => theme.font.weight.light};
+  font-size: ${({ theme }) => theme.font.size.xs};
 `;
 
-const formatNumber = (value) => {
+const formatCurrencyWithComma = (value) => {
   const onlyNums = value.replace(/[^0-9]/g, "");
   return onlyNums.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
@@ -28,8 +28,8 @@ export default function AmountInput({ amount, onChange }) {
 
   const handleChange = (e) => {
     const input = e.target.value;
-    const formatted = formatNumber(input);
-    onChange(formatted);
+    const formatted = formatCurrencyWithComma(input);
+    return formatted;
   };
 
   return (
@@ -37,7 +37,7 @@ export default function AmountInput({ amount, onChange }) {
       <AmountInputWrapper
         type="text"
         value={amount}
-        onChange={handleChange}
+        onChange={(e) => onChange(handleChange(e))}
         placeholder="0"
       />
       <CurrencyUnit>{currencyUnitText}</CurrencyUnit>

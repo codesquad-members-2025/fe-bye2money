@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 const ToggleButton = styled.button`
-  border: none;
+  all: unset;
+  background-color: ${({ theme }) => theme.color.token.surface.default};
+  color: ${({ theme }) => theme.color.token.text.default};
   cursor: pointer;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: none; /* ✅ 파란 테두리 완전히 제거 */
+  }
 `;
 const ToggleWrapper = styled.div`
   width: 16px;
@@ -13,37 +21,45 @@ function getType(type) {
   if (type === "earning") {
     return (
       <svg
-        width="14"
-        height="1"
-        viewBox="0 0 14 1"
+        width="17"
+        height="16"
+        viewBox="0 0 17 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M1 0.5H13"
+          d="M4.05566 8H12.0557"
           stroke="black"
           stroke-linecap="round"
           stroke-linejoin="round"
+        />
+        <path
+          d="M8.05566 12V4"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     );
   } else if (type === "expense") {
     return (
       <svg
-        width="2"
-        height="13"
-        viewBox="0 0 2 13"
+        width="17"
+        height="16"
+        viewBox="0 0 17 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M1 12.5L1 0.5"
+          d="M4.05554 8H12.0555"
           stroke="black"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     );
+  } else {
+    return null;
   }
 }
 
@@ -59,13 +75,12 @@ function toggleType(currentType) {
   return chagedType;
 }
 
-export default function TypeToggle({ type, onClick }) {
-  let currentType = type;
+export default function TypeToggle({ currentType: type, onClick }) {
   return (
-    <ToggleWrapper>
-      <ToggleButton onClick={() => onClick(toggleType(currentType))}>
-        {getType(currentType)}
-      </ToggleButton>
-    </ToggleWrapper>
+    // <ToggleWrapper>
+    <ToggleButton type="button" onClick={() => onClick(toggleType(type))}>
+      {getType(type)}
+    </ToggleButton>
+    // </ToggleWrapper>
   );
 }

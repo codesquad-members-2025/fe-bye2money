@@ -17,5 +17,18 @@ export const GlobalStyle = createGlobalStyle`
 
   *, *::before, *::after {
     box-sizing: border-box;
+    border:1px solid red;
+    
   }
+
+input,
+select,
+textarea {
+  background-color: ${({ theme }) => theme.color.token.surface.default};
+  color: ${({ theme }) => theme.color.token.text.default};
+  border: 1px solid ${({ theme }) => theme.color.token.border.default};
+  font-family: ${({ theme }) => theme.font.sans};
+  font-size: ${({ theme }) => theme.font.size.sm};
+}
+
 `;
