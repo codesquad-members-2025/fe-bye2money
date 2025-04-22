@@ -39,6 +39,7 @@ export default function AmountInput({ amount, onChange }) {
         value={amount}
         onChange={(e) => onChange(handleChange(e))}
         placeholder="0"
+        required
       />
       <CurrencyUnit>{currencyUnitText}</CurrencyUnit>
     </AmountWrapper>

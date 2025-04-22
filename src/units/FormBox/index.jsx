@@ -22,10 +22,18 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
     selectedTransactions
   );
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={(e) => handleSubmit(e)}>
       <DateInput
         value={formState.regDate}
-        onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}
+        onChange={(val) =>
+          formDispatch({
+            type: "SET_REGDATE",
+            regDate: val.regDate,
+            year: val.year,
+            month: val.month,
+            day: val.day,
+          })
+        }
       />
       <TypeToggle
         currentType={formState.currentType}
@@ -61,7 +69,7 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
           formDispatch({ type: "SET_CLASSIFICATION", classification: option })
         }
       />
-      <SubmitButton />
+      <SubmitButton isValid={isValid} />
     </StyledForm>
   );
 }
