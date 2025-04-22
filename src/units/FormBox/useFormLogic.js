@@ -1,5 +1,6 @@
 import { useReducer, useState, useEffect } from "react";
 import { normalizeDate } from "../../base-ui/inputs/DateInput/inputDateHandler";
+import generateUUID from "./idGenerator";
 
 export default function useFormLogic(
   currentMonth,
@@ -30,13 +31,43 @@ export default function useFormLogic(
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const isEdit = !!selectedTransactions;
     if (!isValid) return;
-    const currentInputMonth = getCurrentMonth(formState.regDate);
-
-    const response = await postToServer(formData);
-    if (response.ok && currentMonth === currentInputMonth) {
-      dispatch({ type: "REGISTER", payload: formData });
+    let res;
+    //수정 할 경우
+    if (isEdit) {
+      if (!formState.id) {
+        console.error("수정할 항목의 ID가 없습니다.");
+        return;
+      }
+      res = await fetch(`http://localhost:3001/transactions/${formState.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+      if (!res.ok) {
+        alert("요청에 실패했습니다. 다시 시도해주세요.");
+      }
+      if (res.ok && currentMonth === formState.month) {
+        dispatch({ type: "EDIT", payload: formState });
+      }
+    } else {
+      formDispatch({ type: "SET_ID", id: generateUUID() });
+      res = await fetch(`http://localhost:3001/transactions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+      if (!res.ok) {
+        alert("요청에 실패했습니다. 다시 시도해주세요.");
+      }
+      if (res.ok && currentMonth === formState.month) {
+        dispatch({ type: "ADD", payload: formState });
+      }
     }
   };
 
@@ -77,6 +108,9 @@ function reducer(state, action) {
     }
     case "SET_CLASSIFICATION": {
       return { ...state, classification: action.classification };
+    }
+    case "SET_ID": {
+      return { ...state, id: action.id };
     }
   }
 }
