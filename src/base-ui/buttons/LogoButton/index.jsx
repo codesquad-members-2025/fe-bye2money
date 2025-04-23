@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
+  display: flex;
+  gap: 4px;
   background: transparent;
   border: none;
   font-family: ${({ theme }) => theme.font.serif};
@@ -9,6 +11,7 @@ const StyledButton = styled.button`
   line-height: ${({ theme }) => theme.font.lineHeight.lg};
   color: ${({ theme }) => theme.color.token.text.default};
   cursor: pointer;
+  padding-right: 15px;
 
   &:hover {
     opacity: 0.8;
@@ -19,6 +22,11 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function LogoButton({ onClick, children }) {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+export default function LogoButton({ onClick }) {
+  return (
+    <StyledButton onClick={onClick}>
+      <span>"Wise"</span>
+      <span>"Wallet"</span>
+    </StyledButton>
+  );
 }

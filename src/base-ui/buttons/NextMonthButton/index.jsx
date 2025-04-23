@@ -1,6 +1,6 @@
 import { StyledSwipeButton } from "../StyledButton";
 
-export default function PrevMonthButton({ onClick }) {
+export default function NextMonthButton({ onClick }) {
   return (
     <StyledSwipeButton onClick={onClick}>
       <svg
