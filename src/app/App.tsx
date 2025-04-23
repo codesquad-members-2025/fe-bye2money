@@ -1,24 +1,16 @@
-import { useState } from "react";
+// src/components/layout/Layout.tsx
+import { Outlet } from "react-router-dom";
+import Layout from "../features/layout/Layout";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="flex flex-col w-full h-full">
+      <Layout />
+      <main>
+        <Outlet />
+      </main>
+    </div>
   );
-}
+};
 
 export default App;
