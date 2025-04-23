@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useParams, useLocation } from 'react-router-dom';
 
 import NoteIcon from '../../assets/icons/doc.svg?react';
 import CalendarIcon from '../../assets/icons/calendar.svg?react';
@@ -6,6 +7,7 @@ import StatsIcon from '../../assets/icons/chart.svg?react';
 
 import useMonthNavigator from './hooks/useMonthNavigator';
 import usePageNavigator from './hooks/usePageNavigator';
+import { getActiveTabFromPath } from '../../shared/utils/getActiveTabFromPath';
 import LogoSection from './components/LogoSection';
 import MonthNavigator from './components/MonthNavigator';
 import TabNavigation from './components/TabNavigation';
@@ -26,9 +28,13 @@ const HeaderContainer = styled.header`
   margin: 40px auto 64px;
 `;
 
-function Header({ year, month, activeTab }) {
+function Header() {
+  const { pathname } = useLocation();
+  const { year, month } = useParams();
   const { goToNextMonth, goToPreviousMonth } = useMonthNavigator();
   const { navigateTo } = usePageNavigator();
+
+  const activeTab = getActiveTabFromPath(pathname);
 
   const tabItems = [
     { key: 'home', icon: NoteIcon, path: 'home' },

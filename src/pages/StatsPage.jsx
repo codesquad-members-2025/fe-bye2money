@@ -1,13 +1,9 @@
 import { useOutletContext } from 'react-router-dom';
 
 function StatsPage() {
-  const { data } = useOutletContext();
+  const { records } = useOutletContext();
 
-  return (
-    <div>
-      통계 페이지입니다. 날짜는 {data.year}.{data.month}
-    </div>
-  );
+  return <div>통계 달력 페이지입니다. 내역 개수는 {records.length}</div>;
 }
 
 export default StatsPage;

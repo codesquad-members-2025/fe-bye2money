@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { useParams, useLocation, Outlet } from 'react-router-dom';
-import useFetchRecordsByDate from '../shared/hooks/useFetchRecordsByDate';
-import { getActiveTabFromPath } from '../shared/utils/getActiveTabFromPath';
+import { useParams, Outlet } from 'react-router-dom';
+import useRecordState from '../shared/hooks/useRecordState';
 import Header from '../features/header';
 
 const LayoutWrapper = styled.div`
@@ -17,20 +16,17 @@ const Content = styled.main`
 
 function App() {
   const { year, month } = useParams();
-  const { data, loading } = useFetchRecordsByDate(year, month);
-
-  const { pathname } = useLocation();
-  const activeTab = getActiveTabFromPath(pathname);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const { records, dispatch, loading, error } = useRecordState(year, month);
 
   return (
     <LayoutWrapper>
-      <Header year={data.year} month={data.month} activeTab={activeTab} />
+      <Header />
       <Content>
-        <Outlet context={{ data }} />
+        {loading ? (
+          <div>loading...</div>
+        ) : (
+          <Outlet context={{ records, dispatch }} />
+        )}
       </Content>
     </LayoutWrapper>
   );
