@@ -15,11 +15,15 @@ const StyledForm = styled.form`
   padding: 16px;
 `;
 
-export default function FormBox(currentMonth, dispatch, selectedTransactions) {
+export default function FormBox(
+  dispatch,
+  selectedTransactions,
+  setSelectedTransactions
+) {
   const { formState, formDispatch, handleSubmit, isValid } = useFormLogic(
-    currentMonth,
     dispatch,
-    selectedTransactions
+    selectedTransactions,
+    setSelectedTransactions
   );
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>

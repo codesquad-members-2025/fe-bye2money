@@ -10,6 +10,9 @@ import useMonthParams from "./useMonthParams";
 const BackgroundDiv = styled.div`
   height: 216px;
   background-color: ${({ theme }) => theme.color.pastel.jordyBlue};
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
 `;
 
 const HeaderWrapper = styled.div`

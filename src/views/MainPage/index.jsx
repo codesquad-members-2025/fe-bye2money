@@ -1,8 +1,14 @@
 //여기서 전체 데이터를 다뤄야함.
 import Header from "../../units/Header";
+import styled from "styled-components";
 import { Outlet, useSearchParams } from "react-router-dom";
 import { useReducer, useEffect } from "react";
 import mainPageReducer from "./mainPageReducer";
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default function MainPage() {
   const [mainPageState, mainPageDispatch] = useReducer(mainPageReducer, []);
@@ -28,9 +34,9 @@ export default function MainPage() {
     loadData();
   }, [currentMonth]);
   return (
-    <div>
+    <MainContainer>
       <Header />
       <Outlet context={{ mainPageState, mainPageDispatch }} />
-    </div>
+    </MainContainer>
   );
 }
