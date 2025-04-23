@@ -7,7 +7,7 @@ export function moveNextMonth() {
   const month =
     parseInt(searchParams.get("month")) || new Date().getMonth() + 1;
 
-  const next = new Date(year, month); // month is 1-based; this works correctly for next month
+  const next = new Date(year, month);
   const [nextYear, nextMonth] = [next.getFullYear(), next.getMonth() + 1];
 
   return () => setSearchParams({ year: nextYear, month: nextMonth });
@@ -19,8 +19,18 @@ export function movePrevMonth() {
   const month =
     parseInt(searchParams.get("month")) || new Date().getMonth() + 1;
 
-  const prev = new Date(year, month - 2); // move back one month, zero-indexed
+  const prev = new Date(year, month - 2);
   const [prevYear, prevMonth] = [prev.getFullYear(), prev.getMonth() + 1];
 
   return () => setSearchParams({ year: prevYear, month: prevMonth });
+}
+
+export function getCurrentDate() {
+  const [searchParams] = useSearchParams();
+  const currentYear =
+    parseInt(searchParams.get("year")) || new Date().getFullYear();
+  const currentMonth =
+    parseInt(searchParams.get("month")) || new Date().getMonth() + 1;
+
+  return { currentYear, currentMonth };
 }
