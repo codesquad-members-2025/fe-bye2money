@@ -51,7 +51,8 @@ export default function useFormLogic(
         alert("요청에 실패했습니다. 다시 시도해주세요.");
       }
       if (res.ok && currentMonth === formState.month) {
-        dispatch({ type: "EDIT", payload: formState });
+        //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
+        dispatch({ type: "TRANSACTION_EDIT", payload: formState });
       }
     } else {
       formDispatch({ type: "SET_ID", id: generateUUID() });
@@ -66,7 +67,8 @@ export default function useFormLogic(
         alert("요청에 실패했습니다. 다시 시도해주세요.");
       }
       if (res.ok && currentMonth === formState.month) {
-        dispatch({ type: "ADD", payload: formState });
+        //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
+        dispatch({ type: "TRANSACTION_ADD", payload: formState });
       }
     }
   };
