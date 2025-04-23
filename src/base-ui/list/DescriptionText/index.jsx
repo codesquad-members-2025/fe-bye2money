@@ -5,8 +5,7 @@ export default function DescriptionText({ description }) {
 }
 
 const Text = styled.div`
-  /* width: 400px;
-  height: 24px; */
+  width: 400px;
   font-family: ${({ theme }) => theme.font.sans};
   font-weight: 300;
   font-size: ${({ theme }) => theme.font.size.sm};
