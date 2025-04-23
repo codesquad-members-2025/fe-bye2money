@@ -4,6 +4,7 @@ import PrevMonthButton from "../../base-ui/buttons/PrevMonthButton";
 import NextMonthButton from "../../base-ui/buttons/NextMonthButton";
 import MonthYearTitle from "../../base-ui/MonthYearTitle";
 import ViewSelectButtons from "../../base-ui/buttons/ViewSelectButtons";
+import goHome from "./goHome";
 
 const BackgroundDiv = styled.div`
   height: 216px;
@@ -26,7 +27,7 @@ export default function Header() {
   return (
     <BackgroundDiv>
       <HeaderWrapper>
-        <LogoButton />
+        <LogoButton onClick={goHome} />
         <HeaderCenterWrapper>
           <PrevMonthButton />
           <MonthYearTitle />
