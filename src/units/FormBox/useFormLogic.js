@@ -2,6 +2,7 @@ import { useReducer, useState, useEffect } from "react";
 import { normalizeDate } from "../../base-ui/inputs/DateInput/inputDateHandler";
 import generateUUID from "./idGenerator";
 
+//reducer 함수 분리 필요! -> 메인페이지와 연결되면 리팩토링 시작
 export default function useFormLogic(
   currentMonth,
   dispatch,
