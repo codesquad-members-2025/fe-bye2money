@@ -7,10 +7,11 @@ import StatisticsView from "../views/StatisticsView";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route index element={<LogView />} />
-      <Route path="calendar" element={<CalendarView />} />
-      <Route path="statisticsView" element={<StatisticsView />} />
+      <Route path="/" element={<MainPage />}>
+        <Route index element={<LogView />} />
+        <Route path="calendar" element={<CalendarView />} />
+        <Route path="statisticsView" element={<StatisticsView />} />
+      </Route>
     </Routes>
   );
 }

@@ -13,6 +13,8 @@ const StyledForm = styled.form`
   flex-direction: row;
   gap: 16px;
   padding: 16px;
+  background-color: ${({ theme }) => theme.color.token.surface.default};
+  border: 1px solid ${({ theme }) => theme.color.token.text.default};
 `;
 
 export default function FormBox(

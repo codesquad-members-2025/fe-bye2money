@@ -11,10 +11,10 @@ export default function NextMonthButton({ onClick }) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M9 1L1 9L9 17"
-          stroke="#000"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          d="M1 1L9 9L1 17"
+          stroke="black"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
       </svg>
     </StyledSwipeButton>

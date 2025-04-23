@@ -6,8 +6,17 @@ import { useReducer, useEffect } from "react";
 import mainPageReducer from "./mainPageReducer";
 
 const MainContainer = styled.div`
+  position: relative;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 100vw;
+  max-width: 100vw;
 `;
 
 export default function MainPage() {

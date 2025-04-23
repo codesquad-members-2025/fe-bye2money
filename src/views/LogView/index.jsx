@@ -6,6 +6,7 @@ import { useOutletContext } from "react-router-dom";
 const LogContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 34px;
   margin-top: -40px;
 `;

@@ -8,11 +8,12 @@ import goHome from "./goHome";
 import useMonthParams from "./useMonthParams";
 
 const BackgroundDiv = styled.div`
+  width: 100%;
   height: 216px;
+  padding-left: 297px;
+  padding-right: 297px;
   background-color: ${({ theme }) => theme.color.pastel.jordyBlue};
   padding-top: 40px;
-  display: flex;
-  justify-content: center;
 `;
 
 const HeaderWrapper = styled.div`
@@ -23,8 +24,8 @@ const HeaderWrapper = styled.div`
 
 const HeaderCenterWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 24px;
 `;
 
 export default function Header() {

@@ -4,7 +4,7 @@ import getMonthName from "./getMonthName";
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 4px;
   align-items: center;
 `;
 

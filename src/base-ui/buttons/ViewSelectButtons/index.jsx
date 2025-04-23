@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -19,16 +19,19 @@ const StyledCircleNavLink = styled(NavLink)`
   align-items: center;
   justify-content: center;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    background-color: ${({ theme }) => theme.token.surface.default};
+  &.active {
+    background-color: ${({ theme }) => theme.color.token.surface.default};
   }
 `;
 
-export default function ViewSelectButtons({ queryParams }) {
+export default function ViewSelectButtons() {
+  const [searchParams] = useSearchParams();
+  const now = new Date();
+  const currentYear = parseInt(searchParams.get("year")) || now.getFullYear();
+  const currentMonth =
+    parseInt(searchParams.get("month")) || now.getMonth() + 1;
+
+  const queryParams = `year=${currentYear}&month=${currentMonth}`;
   return (
     <ButtonWrapper>
       <StyledCircleNavLink to={`/?${queryParams}`}>

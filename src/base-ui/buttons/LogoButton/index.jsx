@@ -25,8 +25,8 @@ const StyledButton = styled.button`
 export default function LogoButton({ onClick }) {
   return (
     <StyledButton onClick={onClick}>
-      <span>"Wise"</span>
-      <span>"Wallet"</span>
+      <span>Wise</span>
+      <span>Wallet</span>
     </StyledButton>
   );
 }
