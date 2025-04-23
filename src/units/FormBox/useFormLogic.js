@@ -1,17 +1,25 @@
 import { useReducer, useState, useEffect } from "react";
 import { normalizeDate } from "../../base-ui/inputs/DateInput/inputDateHandler";
 import generateUUID from "./idGenerator";
+import { useSearchParams } from "react-router-dom";
 
+//reducer 함수 분리 필요! -> 메인페이지와 연결되면 리팩토링 시작
 export default function useFormLogic(
-  currentMonth,
   dispatch,
-  selectedTransactions = null
+  selectedTransactions = null,
+  setSelectedTransactions
 ) {
+  const [searchParams] = useSearchParams();
   const [formState, formDispatch] = useReducer(
     reducer,
     getInitialArg(selectedTransactions)
   );
   const [isValid, setIsValid] = useState(false);
+
+  const now = new Date();
+  const currentYear = parseInt(searchParams.get("year")) || now.getFullYear();
+  const currentMonth =
+    parseInt(searchParams.get("month")) || now.getMonth() + 1;
 
   const getIsValid = () => {
     if (!formState.regDate || formState.regDate.length !== 10) {
@@ -50,8 +58,14 @@ export default function useFormLogic(
       if (!res.ok) {
         alert("요청에 실패했습니다. 다시 시도해주세요.");
       }
-      if (res.ok && currentMonth === formState.month) {
-        dispatch({ type: "EDIT", payload: formState });
+      if (
+        res.ok &&
+        currentMonth === formState.month &&
+        currentYear === formState.year
+      ) {
+        //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
+        dispatch({ type: "TRANSACTION_EDIT", payload: formState });
+        setSelectedTransactions(null);
       }
     } else {
       formDispatch({ type: "SET_ID", id: generateUUID() });
@@ -65,8 +79,13 @@ export default function useFormLogic(
       if (!res.ok) {
         alert("요청에 실패했습니다. 다시 시도해주세요.");
       }
-      if (res.ok && currentMonth === formState.month) {
-        dispatch({ type: "ADD", payload: formState });
+      if (
+        res.ok &&
+        currentMonth === formState.month &&
+        currentYear === formState.year
+      ) {
+        //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
+        dispatch({ type: "TRANSACTION_ADD", payload: formState });
       }
     }
   };

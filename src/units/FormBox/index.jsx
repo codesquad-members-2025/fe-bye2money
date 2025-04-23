@@ -13,13 +13,19 @@ const StyledForm = styled.form`
   flex-direction: row;
   gap: 16px;
   padding: 16px;
+  background-color: ${({ theme }) => theme.color.token.surface.default};
+  border: 1px solid ${({ theme }) => theme.color.token.text.default};
 `;
 
-export default function FormBox(currentMonth, dispatch, selectedTransactions) {
+export default function FormBox(
+  dispatch,
+  selectedTransactions,
+  setSelectedTransactions
+) {
   const { formState, formDispatch, handleSubmit, isValid } = useFormLogic(
-    currentMonth,
     dispatch,
-    selectedTransactions
+    selectedTransactions,
+    setSelectedTransactions
   );
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
