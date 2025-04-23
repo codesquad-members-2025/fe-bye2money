@@ -5,12 +5,7 @@ import NextMonthButton from "../../base-ui/buttons/NextMonthButton";
 import MonthYearTitle from "../../base-ui/MonthYearTitle";
 import ViewSelectButtons from "../../base-ui/buttons/ViewSelectButtons";
 import goHome from "./goHome";
-import {
-  moveNextMonth,
-  movePrevMonth,
-  movePrevMonth,
-  getCurrentDate,
-} from "./monthHandler";
+import useMonthParams from "./useMonthParams";
 
 const BackgroundDiv = styled.div`
   height: 216px;
@@ -31,17 +26,17 @@ const HeaderCenterWrapper = styled.div`
 
 export default function Header() {
   const goHomeHandler = goHome();
-  const prevMonthHandler = movePrevMonth();
-  const nextMonthHandler = moveNextMonth();
+  const { moveNextMonth, movePrevMonth, getCurrentDate } = useMonthParams();
   const currentDate = getCurrentDate();
+
   return (
     <BackgroundDiv>
       <HeaderWrapper>
         <LogoButton onClick={goHomeHandler} />
         <HeaderCenterWrapper>
-          <PrevMonthButton onClick={prevMonthHandler} />
+          <PrevMonthButton onClick={movePrevMonth} />
           <MonthYearTitle {...currentDate} />
-          <NextMonthButton onClick={nextMonthHandler} />
+          <NextMonthButton onClick={moveNextMonth} />
         </HeaderCenterWrapper>
         <ViewSelectButtons />
       </HeaderWrapper>
