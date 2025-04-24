@@ -1,32 +1,37 @@
 import styled from "styled-components";
-import AmountText from "./TotalExpenseLabel";
+import { useEffect, useState } from "react";
 import CategoryTag from "./CategoryTag";
-import DateLabel from "./DateLabel";
 import DescriptionText from "./DescriptionText";
 import PaymentMethodText from "./PaymentMethodText";
 import AmountText from "./TotalExpenseLabel";
-import DeleteButton from "./DeleteButton";
+import DeleteButton from "../buttons/DeleteButton";
 
 export default function ListItem({ item, onEdit, onDelete }) {
-  const { id, regDate, content, amount, category, method, type } = item;
+  const [ishover, setIshover] = useState(false);
+  const {
+    id,
+    regDate,
+    classification,
+    description,
+    method,
+    amount,
+    currentType,
+  } = item;
 
   return (
-    <Container onClick={() => onEdit(item)}>
-      <TopRow>
-        <DateLabel regDate={regDate} />
-        <DeleteButton
-          onClick={(e) => {
-            e.stopPropagation();
-            onDelete(id);
-          }}
-        />
-      </TopRow>
-      <ContentRow>
-        <CategoryTag category={category} type={type} />
-        <Text>{content}</Text>
-        <PaymentLabel method={method} />
-        <AmountText amount={amount} type={type} />
-      </ContentRow>
+    <Container
+      onClick={() => onEdit(item)}
+      onMouseEnter={() => setIshover(true)}
+      onMouseLeave={() => setIshover(false)}
+    >
+      <CategoryTag classification={classification} />
+      <DescriptionText description={description} />
+      <PaymentMethodText method={method} />
+      <AmountText
+        earning={currentType === "earning" ? amount : null}
+        expense={currentType === "expense" ? amount : null}
+      />
+      {ishover && <DeleteButton onClick={() => onDelete(item)} />}
     </Container>
   );
 }
@@ -34,12 +39,13 @@ export default function ListItem({ item, onEdit, onDelete }) {
 const Container = styled.li`
   display: flex;
   gap: 16px;
+  align-items: center;
+  padding-right: 16px;
   background-color: ${({ theme }) => theme.color.token.surface.default};
-  border-bottom: 1px solid ${({ theme }) => theme.color.token.border.default};
   cursor: pointer;
   transition: background-color 0.3s;
 
-  &.hover {
+  &:hover {
     background-color: ${({ theme }) => theme.color.token.surface.point};
   }
 `;
