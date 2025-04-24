@@ -1,20 +1,28 @@
 import styled from "styled-components";
 
-export default function AmountText({ amount, currentType }) {
+const Item = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ${({ theme }) => theme.font.serif};
+  color: ${({ theme }) => theme.color.token.text.default};
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+`;
+
+function MoneyLabel(moneyType, money) {
+  const earning = "수입";
+  const expense = "지출";
+  const moneyType = moneyType === "earning" ? earning : expense;
+  const formedMoney = Number(money).toLocaleString();
+
   return (
-    <Text $currentType={currentType === "earning" ? "income" : "expense"}>
-      {isExpense ? "-" : ""}
-      {Number(amount).toLocaleString()}
-    </Text>
+    <Item>
+      <span>{moneyType}</span>
+      <span>{formedMoney}</span>
+    </Item>
   );
 }
 
-const Text = styled.div`
-  width: 186px;
-  font-family: ${({ theme }) => theme.font.sans};
-  font-weight: 300;
-  font-size: ${({ theme }) => theme.font.size.sm};
-  line-height: ${({ theme }) => theme.font.lineHeight.sm};
-  color: ${({ theme, $currentType }) => theme.color.token.text[$currentType]};
-  text-align: right;
-`;
+export default function TotalExpenseLabel({ earning, expense }) {}

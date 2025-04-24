@@ -2,8 +2,10 @@ import styled from "styled-components";
 import AmountText from "./TotalExpenseLabel";
 import CategoryTag from "./CategoryTag";
 import DateLabel from "./DateLabel";
+import DescriptionText from "./DescriptionText";
+import PaymentMethodText from "./PaymentMethodText";
+import AmountText from "./TotalExpenseLabel";
 import DeleteButton from "./DeleteButton";
-import PaymentLabel from "./PaymentLabel";
 
 export default function ListItem({ item, onEdit, onDelete }) {
   const { id, regDate, content, amount, category, method, type } = item;
@@ -30,16 +32,14 @@ export default function ListItem({ item, onEdit, onDelete }) {
 }
 
 const Container = styled.li`
-  padding: 12px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   background-color: ${({ theme }) => theme.color.token.surface.default};
   border-bottom: 1px solid ${({ theme }) => theme.color.token.border.default};
   cursor: pointer;
   transition: background-color 0.3s;
 
-  &:hover {
+  &.hover {
     background-color: ${({ theme }) => theme.color.token.surface.point};
   }
 `;
