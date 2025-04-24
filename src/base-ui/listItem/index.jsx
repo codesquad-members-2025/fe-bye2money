@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CategoryTag from "./CategoryTag";
 import DescriptionText from "./DescriptionText";
 import PaymentMethodText from "./PaymentMethodText";
@@ -8,15 +8,7 @@ import DeleteButton from "../buttons/DeleteButton";
 
 export default function ListItem({ item, onEdit, onDelete }) {
   const [ishover, setIshover] = useState(false);
-  const {
-    id,
-    regDate,
-    classification,
-    description,
-    method,
-    amount,
-    currentType,
-  } = item;
+  const { classification, description, method, amount, currentType } = item;
 
   return (
     <Container
@@ -48,26 +40,4 @@ const Container = styled.li`
   &:hover {
     background-color: ${({ theme }) => theme.color.token.surface.point};
   }
-`;
-
-const TopRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const ContentRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-`;
-
-const Text = styled.span`
-  flex: 1;
-  font-size: ${({ theme }) => theme.font.size.sm};
-  color: ${({ theme }) => theme.color.token.text.default};
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 `;
