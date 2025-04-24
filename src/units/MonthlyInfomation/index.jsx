@@ -3,6 +3,7 @@ import ItemCounter from "../../base-ui/itemCounter";
 import FilterCheckBox from "../../base-ui/buttons/FilterCheckBox";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import moneyReducer from "../../utils/moneyReducer";
 
 const Container = styled.div`
   display: flex;
@@ -15,10 +16,11 @@ const CheckBoxWrapper = styled.div`
   gap: 12px;
 `;
 
-export default function MonthlyInfomation({ count }) {
+export default function MonthlyInfomation({ transactions }) {
   const [isEarningActive, setIsEarningActive] = useState(true);
   const [isExpenseActive, setIsExpensActive] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { earning, expense } = moneyReducer(transactions);
 
   function toggleEarningButton() {
     const currentTypeArray = searchParams.getAll("currentType");
@@ -47,18 +49,18 @@ export default function MonthlyInfomation({ count }) {
   }
   return (
     <Container>
-      <ItemCounter count={count} />
+      <ItemCounter count={transactions.length} />
       <CheckBoxWrapper>
         <FilterCheckBox
           onClick={() => toggleEarningButton()}
           transactionType={"earning"}
-          amount={amount}
+          amount={earning}
           isCheckBoxActive={isEarningActive}
         />
         <FilterCheckBox
           onClick={() => toggleExpenseButton()}
           transactionType={"expense"}
-          amount={amount}
+          amount={expense}
           isCheckBoxActive={isExpenseActive}
         />
       </CheckBoxWrapper>

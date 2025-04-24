@@ -2,8 +2,8 @@ import styled from "styled-components";
 import FormBox from "../../units/FormBox";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import MonthTransactionList from "../../units/MonthTransactionList";
 import MonthlyInfomation from "../../units/MonthlyInfomation";
+import MonthTransactionList from "../../units/MonthTransactionList";
 
 const LogContainer = styled.div`
   display: flex;
@@ -11,6 +11,12 @@ const LogContainer = styled.div`
   align-items: center;
   gap: 34px;
   margin-top: -40px;
+`;
+
+const LogBody = styled.div`
+  display: flex;
+  gap: 40px;
+  align-items: center;
 `;
 //setSelectedTransactions은 로그뷰에 내려줘야한다.
 export default function LogView() {
@@ -23,6 +29,13 @@ export default function LogView() {
         selectedTransactions={selectedTransactions}
         setSelectedTransactions={setSelectedTransactions}
       />
+      <LogBody>
+        <MonthlyInfomation transactions={mainPageState} />
+        <MonthTransactionList
+          transactions={mainPageState}
+          onEdit={(item) => setSelectedTransactions(item)}
+        />
+      </LogBody>
     </LogContainer>
   );
 }

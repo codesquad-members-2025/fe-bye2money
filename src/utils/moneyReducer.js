@@ -1,7 +1,7 @@
 export default function moneyReducer(items) {
   const moneyResult = items.reduce(
     (acc, item) => {
-      const parsedAmount = Number(item.amount.replace(/,/g, ""));
+      const parsedAmount = item.amount;
       if (item.currentType === "earning") {
         acc.earning += parsedAmount;
       } else {

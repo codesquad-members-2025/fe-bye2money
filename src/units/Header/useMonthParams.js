@@ -12,14 +12,21 @@ export default function useMonthParams() {
     const next = new Date(year, month);
     const [nextYear, nextMonth] = [next.getFullYear(), next.getMonth() + 1];
 
-    setSearchParams({ year: nextYear, month: nextMonth });
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("year", nextYear);
+    newParams.set("month", nextMonth);
+
+    setSearchParams(newParams);
   }
 
   function movePrevMonth() {
     const prev = new Date(year, month - 2);
     const [prevYear, prevMonth] = [prev.getFullYear(), prev.getMonth() + 1];
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("year", prevYear);
+    newParams.set("month", prevMonth);
 
-    setSearchParams({ year: prevYear, month: prevMonth });
+    setSearchParams(newParams);
   }
 
   function getCurrentDate() {

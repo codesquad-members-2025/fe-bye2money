@@ -17,8 +17,8 @@ const Header = styled.div`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  border-top: 1px solid ${({ theme }) => theme.color.border.default};
-  border-bottom: 1px solid ${({ theme }) => theme.color.border.default};
+  border-top: 1px solid ${({ theme }) => theme.color.token.border.default};
+  border-bottom: 1px solid ${({ theme }) => theme.color.token.border.default};
 `;
 // transactions: 동일 날짜에 해당하는 트랜잭션 객체 배열
 // onEdit, onDelete는 상위(MainPage)에서 prop으로 내려받은 핸들러
