@@ -11,18 +11,31 @@ const Item = styled.div`
   line-height: 16px;
 `;
 
-function MoneyLabel(moneyType, money) {
-  const earning = "수입";
-  const expense = "지출";
-  const moneyType = moneyType === "earning" ? earning : expense;
-  const formedMoney = Number(money).toLocaleString();
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
 
+const TYPE_LABEL = {
+  earning: "수입",
+  expense: "지출",
+};
+
+function getMoneyLabel(type, amount) {
   return (
     <Item>
-      <span>{moneyType}</span>
-      <span>{formedMoney}</span>
+      <span>{TYPE_LABEL[type]}</span>
+      <span>{Number(amount).toLocaleString()}원</span>
     </Item>
   );
 }
 
-export default function TotalExpenseLabel({ earning, expense }) {}
+export default function TotalExpenseLabel({ earning = null, expense = null }) {
+  return (
+    <Wrapper>
+      {earning && getMoneyLabel("earning", earning)}
+      {expense && getMoneyLabel("expense", expense)}
+    </Wrapper>
+  );
+}
