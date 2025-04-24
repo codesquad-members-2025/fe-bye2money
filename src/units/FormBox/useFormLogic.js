@@ -64,7 +64,7 @@ export default function useFormLogic(
         currentYear === formState.year
       ) {
         //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
-        dispatch({ type: "TRANSACTION_EDIT", payload: formState });
+        dispatch({ type: "EDIT_TRANSACTION", payload: formState });
         setSelectedTransactions(null);
       }
     } else {
@@ -85,7 +85,7 @@ export default function useFormLogic(
         currentYear === formState.year
       ) {
         //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
-        dispatch({ type: "TRANSACTION_ADD", payload: formState });
+        dispatch({ type: "ADD_TRANSACTION", payload: formState });
       }
     }
   };
