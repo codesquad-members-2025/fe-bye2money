@@ -20,24 +20,28 @@ const Body = styled.div`
   border-top: 1px solid ${({ theme }) => theme.color.border.default};
   border-bottom: 1px solid ${({ theme }) => theme.color.border.default};
 `;
-// item: 동일 날짜에 해당하는 트랜잭션 객체 배열
+// transactions: 동일 날짜에 해당하는 트랜잭션 객체 배열
 // onEdit, onDelete는 상위(MainPage)에서 prop으로 내려받은 핸들러
-export default function DailyTransactionList({ item, onEdit, onDelete }) {
-  const { year, month, day } = item[0];
-  const { earning, expense } = moneyReducer(item);
+export default function DailyTransactionList({
+  transactions,
+  onEdit,
+  onDelete,
+}) {
+  const { year, month, day } = transactions[0];
+  const { earning, expense } = moneyReducer(transactions);
   return (
     <Container>
       <Header>
         <DateLabel year={year} month={month} day={day} />
         <TotalExpenseLabel earning={earning} expense={expense} />
       </Header>
-      <Body>{getTransactionItemList(item, onEdit, onDelete)}</Body>
+      <Body>{renderTransactionList(transactions, onEdit, onDelete)}</Body>
     </Container>
   );
 }
 
-function getTransactionItemList(item, onEdit, onDelete) {
-  return item.map((log) => {
+function renderTransactionList(transactions, onEdit, onDelete) {
+  return transactions.map((log) => {
     const id = log.id;
     return <ListItem key={id} item={log} onEdit={onEdit} onDelete={onDelete} />;
   });

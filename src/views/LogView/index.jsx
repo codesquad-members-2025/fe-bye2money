@@ -10,7 +10,7 @@ const LogContainer = styled.div`
   gap: 34px;
   margin-top: -40px;
 `;
-
+//setSelectedTransactions은 로그뷰에 내려줘야한다.
 export default function LogView() {
   const [selectedTransactions, setSelectedTransactions] = useState(null);
   const { mainPageState, mainPageDispatch } = useOutletContext();
