@@ -21,12 +21,22 @@ const MainContainer = styled.div`
 
 export default function MainPage() {
   const [mainPageState, mainPageDispatch] = useReducer(mainPageReducer, []);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const now = new Date();
   const currentYear = parseInt(searchParams.get("year")) || now.getFullYear();
   const currentMonth =
     parseInt(searchParams.get("month")) || now.getMonth() + 1;
   const currentTypeArray = searchParams.getAll("currentType");
+
+  // 1. 쿼리 파람 초기화 useEffect
+  useEffect(() => {
+    if (searchParams.getAll("currentType").length === 0) {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.append("currentType", "earning");
+      newParams.append("currentType", "expense");
+      setSearchParams(newParams);
+    }
+  }, []);
 
   useEffect(() => {
     async function loadData() {
@@ -51,7 +61,7 @@ export default function MainPage() {
     }
 
     loadData();
-  }, [currentMonth, currentTypeArray]);
+  }, [currentMonth, currentTypeArray.join()]);
   return (
     <MainContainer>
       <Header />

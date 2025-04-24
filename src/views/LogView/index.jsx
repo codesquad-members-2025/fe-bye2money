@@ -2,6 +2,8 @@ import styled from "styled-components";
 import FormBox from "../../units/FormBox";
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import MonthTransactionList from "../../units/MonthTransactionList";
+import MonthlyInfomation from "../../units/MonthlyInfomation";
 
 const LogContainer = styled.div`
   display: flex;

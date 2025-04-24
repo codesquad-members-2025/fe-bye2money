@@ -36,7 +36,7 @@ export default function FilterCheckBox({
   isCheckBoxActive,
 }) {
   return (
-    <StyledCheckBox>
+    <StyledCheckBox onClick={onClick}>
       <CheckBox>
         {isCheckBoxActive ? (
           <svg

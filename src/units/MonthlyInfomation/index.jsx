@@ -20,9 +20,8 @@ export default function MonthlyInfomation({ count }) {
   const [isExpenseActive, setIsExpensActive] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const currentTypeArray = searchParams.getAll("currentType");
-
   function toggleEarningButton() {
+    const currentTypeArray = searchParams.getAll("currentType");
     setIsEarningActive((prev) => !prev);
     const newParams = new URLSearchParams(searchParams);
 
@@ -35,6 +34,7 @@ export default function MonthlyInfomation({ count }) {
     setSearchParams(newParams);
   }
   function toggleExpenseButton() {
+    const currentTypeArray = searchParams.getAll("currentType");
     setIsExpensActive((prev) => !prev);
     const newParams = new URLSearchParams(searchParams);
     if (currentTypeArray.includes("expense")) {
