@@ -26,22 +26,32 @@ export default function MainPage() {
   const currentYear = parseInt(searchParams.get("year")) || now.getFullYear();
   const currentMonth =
     parseInt(searchParams.get("month")) || now.getMonth() + 1;
+  const currentTypeArray = searchParams.getAll("currentType");
 
   useEffect(() => {
     async function loadData() {
-      const res = await fetch(
-        `http://localhost:3001/transactions?year=${currentYear}&month=${currentMonth}`
-      );
+      if (currentTypeArray.length === 0) {
+        // 조건이 없으면 요청하지 않고 빈 데이터로 처리
+        mainPageDispatch({ type: "GET_ALL_TRANSACTION", payload: [] });
+        return;
+      }
+
+      const typeQuery = currentTypeArray
+        .map((type) => `currentType=${type}`)
+        .join("&");
+      const url = `http://localhost:3001/transactions?year=${currentYear}&month=${currentMonth}&${typeQuery}`;
+
+      const res = await fetch(url);
       if (res.ok) {
         const allData = await res.json();
         mainPageDispatch({ type: "GET_ALL_TRANSACTION", payload: allData });
       } else {
-        alert("제이슨 서버 패치 오류!"); //나중에 오류 컴포넌트로 대체
+        alert("제이슨 서버 패치 오류!");
       }
     }
 
     loadData();
-  }, [currentMonth]);
+  }, [currentMonth, currentTypeArray]);
   return (
     <MainContainer>
       <Header />
