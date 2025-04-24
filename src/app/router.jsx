@@ -12,6 +12,7 @@ import CalendarPage from '../pages/CalendarPage';
 import StatsPage from '../pages/StatsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import App from './App';
+import Content from './Content';
 
 function AppRouter() {
   const { year, month } = getYearMonth(new Date());
@@ -27,9 +28,11 @@ function AppRouter() {
 
         {/* 그 이후에 App 진입 시 라우팅 */}
         <Route path="/" element={<App />}>
-          <Route path="home/:year/:month" element={<HomePage />} />
-          <Route path="calendar/:year/:month" element={<CalendarPage />} />
-          <Route path="stats/:year/:month" element={<StatsPage />} />
+          <Route element={<Content />}>
+            <Route path="home/:year/:month" element={<HomePage />} />
+            <Route path="calendar/:year/:month" element={<CalendarPage />} />
+            <Route path="stats/:year/:month" element={<StatsPage />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

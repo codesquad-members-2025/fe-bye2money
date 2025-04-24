@@ -13,7 +13,7 @@ const useFetchRecordsByDate = (year, month) => {
         throw new Error('Data file not found');
       }
       const result = await response.json();
-      setData(result);
+      setData(result.records);
     } catch (err) {
       setError(err.message); //TODO 메세지에 따라 외부에서 사용자를 위한 에러핸들링 처리
     } finally {
