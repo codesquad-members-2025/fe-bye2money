@@ -15,9 +15,9 @@ const GhostButton = styled.button`
   }
 `;
 
-export default function SubmitButton() {
+export default function SubmitButton({ isValid }) {
   return (
-    <GhostButton type="button">
+    <GhostButton disabled={!isValid} type="submit">
       <svg
         width="40"
         height="41"

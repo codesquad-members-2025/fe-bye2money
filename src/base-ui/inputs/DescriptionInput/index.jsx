@@ -10,6 +10,7 @@ export default function DescriptionInput({ description, onChange }) {
       value={description}
       placeholder={placeholderText}
       onChange={(e) => onChange(e.target.value)}
+      required
     />
   );
 }

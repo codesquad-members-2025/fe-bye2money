@@ -13,19 +13,33 @@ const StyledForm = styled.form`
   flex-direction: row;
   gap: 16px;
   padding: 16px;
+  background-color: ${({ theme }) => theme.color.token.surface.default};
+  border: 1px solid ${({ theme }) => theme.color.token.text.default};
 `;
 
-export default function FormBox(currentMonth, dispatch, selectedTransactions) {
+export default function FormBox(
+  dispatch,
+  selectedTransactions,
+  setSelectedTransactions
+) {
   const { formState, formDispatch, handleSubmit, isValid } = useFormLogic(
-    currentMonth,
     dispatch,
-    selectedTransactions
+    selectedTransactions,
+    setSelectedTransactions
   );
   return (
-    <StyledForm>
+    <StyledForm onSubmit={(e) => handleSubmit(e)}>
       <DateInput
         value={formState.regDate}
-        onChange={(val) => formDispatch({ type: "SET_REGDATE", regDate: val })}
+        onChange={(val) =>
+          formDispatch({
+            type: "SET_REGDATE",
+            regDate: val.regDate,
+            year: val.year,
+            month: val.month,
+            day: val.day,
+          })
+        }
       />
       <TypeToggle
         currentType={formState.currentType}
@@ -61,7 +75,7 @@ export default function FormBox(currentMonth, dispatch, selectedTransactions) {
           formDispatch({ type: "SET_CLASSIFICATION", classification: option })
         }
       />
-      <SubmitButton />
+      <SubmitButton isValid={isValid} />
     </StyledForm>
   );
 }

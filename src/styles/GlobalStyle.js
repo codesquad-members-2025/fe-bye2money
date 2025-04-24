@@ -8,8 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  body {
+  html,body {
     margin: 0;
+    padding:0;
     font-family: ${({ theme }) => theme.font.sans};
     background-color: ${({ theme }) => theme.color.token.surface.default};
     color: ${({ theme }) => theme.color.token.text.default};
@@ -17,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
 
   *, *::before, *::after {
     box-sizing: border-box;
-    border:1px solid red;
+    /* border:1px solid red; */
     
   }
 
