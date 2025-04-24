@@ -131,6 +131,9 @@ function reducer(state, action) {
     case "SET_ID": {
       return { ...state, id: action.id };
     }
+    case "SET_ALL": {
+      return { ...action.payload };
+    }
   }
 }
 
@@ -146,10 +149,6 @@ function getInitialArg(selectedTransactions = null) {
     classification: "",
   };
 
-  //로그 편집할때는 기존의 선택한 로그데이터가 초기데이터로 초기화
-  if (selectedTransactions) {
-    initialArg = selectedTransactions;
-  }
   return initialArg;
 }
 

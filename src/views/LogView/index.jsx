@@ -15,6 +15,7 @@ const LogContainer = styled.div`
 
 const LogBody = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 40px;
   align-items: center;
 `;
