@@ -146,13 +146,13 @@
     },
     {
       "id": "802eacfe-6a7e-4d27-93d4-03cd4180e92e",
-      "month": 4,
-      "regDate": "2025.04.01",
+      "month": 3,
+      "regDate": "2025.03.01",
       "currentType": "expense",
       "amount": 94008,
-      "description": "의료/건강",
-      "method": "현금",
-      "classification": "의료/건강",
+      "description": "편집 모드 테스트",
+      "method": "토스페이",
+      "classification": "식비",
       "year": 2025,
       "day": 1
     },
@@ -329,10 +329,10 @@
       "month": 4,
       "regDate": "2025.04.01",
       "currentType": "expense",
-      "amount": 331980,
+      "amount": 2331980,
       "description": "문화/여가",
       "method": "이체",
-      "classification": "문화/여가",
+      "classification": "생활",
       "year": 2025,
       "day": 1
     },
@@ -1250,39 +1250,39 @@
     },
     {
       "id": "b2a3d4e5-7c6f-4b5d-8e2a-0a1b2c3d4e05",
-      "month": 5,
-      "regDate": "2025.05.02",
+      "month": 4,
+      "regDate": "2025.04.01",
       "currentType": "earning",
       "amount": 12302113,
       "description": "똥응가히ㄴ히 냠냠\n사실 먹기 싫어!!! 아닌가..?",
       "method": "토스페이",
       "classification": "기타 수입",
       "year": 2025,
-      "day": 2
+      "day": 1
     },
     {
       "id": "c5d6e7f8-1a2b-4c3d-9e5f-0b1c2d3e4f06",
-      "month": 5,
-      "regDate": "2025.05.10",
+      "month": 4,
+      "regDate": "2025.04.01",
       "currentType": "expense",
       "amount": 120000,
       "description": "방구 히히",
       "method": "카카오페이",
       "classification": "교통",
       "year": 2025,
-      "day": 10
+      "day": 1
     },
     {
       "id": "d7e8f9a1-2b3c-4d5e-8f6a-1b2c3d4e5f07",
       "month": 5,
-      "regDate": "2025.05.15",
+      "regDate": "2025.05.12",
       "currentType": "expense",
       "amount": 65000,
       "description": "쇼핑",
       "method": "카드",
       "classification": "쇼핑",
       "year": 2025,
-      "day": 15
+      "day": 12
     },
     {
       "id": "e9f1a2b3-4c5d-6e7f-8a9b-2c3d4e5f6a08",
@@ -1309,50 +1309,14 @@
       "day": 27
     },
     {
-      "id": "",
-      "year": 2025,
-      "month": 4,
-      "day": 25,
-      "regDate": "2025.04.25",
-      "currentType": "expense",
-      "amount": "214,321,312",
-      "description": "123",
-      "method": "토스페이",
-      "classification": "식비"
-    },
-    {
-      "id": "",
-      "year": 2025,
-      "month": 4,
-      "day": 25,
-      "regDate": "2025.04.25",
-      "currentType": "expense",
-      "amount": "1,231,323",
-      "description": "amount test",
-      "method": "토스페이",
-      "classification": "생활"
-    },
-    {
       "id": "7e087d52-aeb8-4959-9c81-f9b2e1a8852f",
       "year": 2025,
       "month": 4,
       "day": 25,
       "regDate": "2025.04.25",
       "currentType": "expense",
-      "amount": "1,231,323",
+      "amount": 1231323,
       "description": "amount test",
-      "method": "토스페이",
-      "classification": "생활"
-    },
-    {
-      "id": "",
-      "year": 2025,
-      "month": 4,
-      "day": 25,
-      "regDate": "2025.04.25",
-      "currentType": "expense",
-      "amount": "123,231",
-      "description": "ㅎㅎ",
       "method": "토스페이",
       "classification": "생활"
     },
@@ -1363,10 +1327,94 @@
       "day": 25,
       "regDate": "2025.04.25",
       "currentType": "expense",
-      "amount": "123,231",
+      "amount": 12231,
       "description": "ㅎㅎ",
       "method": "토스페이",
       "classification": "생활"
+    },
+    {
+      "id": "4ed9023f-fbde-4af3-a025-dddf67cbff09",
+      "year": 2025,
+      "month": 7,
+      "day": 5,
+      "regDate": "2025.07.05",
+      "currentType": "expense",
+      "amount": 1123,
+      "description": "테스트7월로 옮기기아이디 생성?",
+      "method": "토스페이",
+      "classification": "식비"
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 8,
+      "day": 11,
+      "regDate": "2025.08.11",
+      "currentType": "expense",
+      "amount": 11,
+      "description": "111",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 9,
+      "day": 11,
+      "regDate": "2025.09.11",
+      "currentType": "expense",
+      "amount": 122023,
+      "description": "111",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 8,
+      "day": 11,
+      "regDate": "2025.08.11",
+      "currentType": "expense",
+      "amount": 1230,
+      "description": "123",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 8,
+      "day": 23,
+      "regDate": "2025.08.23",
+      "currentType": "expense",
+      "amount": 1230,
+      "description": "아이디 왜 안생기는겨",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "bb28f0ad-e5de-4307-93e9-35074e256657",
+      "year": 2025,
+      "month": 9,
+      "day": 30,
+      "regDate": "2025.09.30",
+      "currentType": "expense",
+      "amount": 1230,
+      "description": "아이디 테스트",
+      "method": "토스페이",
+      "classification": "식비"
+    },
+    {
+      "id": "a0bf1da4-c401-47e2-8f92-4e12bb592c9d",
+      "year": 2025,
+      "month": 9,
+      "day": 10,
+      "regDate": "2025.09.10",
+      "currentType": "expense",
+      "amount": 1230,
+      "description": "ㅈㅈㅈ",
+      "method": "토스페이",
+      "classification": "식비"
     }
   ]
 }

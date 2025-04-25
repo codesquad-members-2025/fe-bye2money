@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { formatAmount } from "../../../utils/amountChanger";
 
 const Item = styled.div`
   display: flex;
@@ -27,7 +26,7 @@ function getMoneyLabel(type, amount) {
   return (
     <Item>
       <span>{TYPE_LABEL[type]}</span>
-      <span>{formatAmount(amount)}원</span>
+      <span>{amount}원</span>
     </Item>
   );
 }

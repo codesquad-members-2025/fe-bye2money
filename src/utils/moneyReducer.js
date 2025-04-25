@@ -15,6 +15,6 @@ export default function moneyReducer(items) {
   );
   return {
     earning: formatAmount(moneyResult.earning),
-    expense: formatAmount(moneyResult.expense.toLocaleString()),
+    expense: formatAmount(moneyResult.expense),
   };
 }

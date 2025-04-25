@@ -5,6 +5,7 @@ import DescriptionText from "./DescriptionText";
 import PaymentMethodText from "./PaymentMethodText";
 import AmountText from "./TotalExpenseLabel";
 import DeleteButton from "../buttons/DeleteButton";
+import { formatAmount } from "../../utils/amountChanger";
 
 export default function ListItem({ item, onEdit, onDelete }) {
   const [ishover, setIshover] = useState(false);
@@ -20,8 +21,8 @@ export default function ListItem({ item, onEdit, onDelete }) {
       <DescriptionText description={description} />
       <PaymentMethodText method={method} />
       <AmountText
-        earning={currentType === "earning" ? amount : null}
-        expense={currentType === "expense" ? amount : null}
+        earning={currentType === "earning" ? formatAmount(amount) : null}
+        expense={currentType === "expense" ? formatAmount(amount) : null}
       />
       {ishover && <DeleteButton onClick={() => onDelete(item)} />}
     </Container>
