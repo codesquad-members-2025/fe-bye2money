@@ -1415,6 +1415,18 @@
       "description": "ㅈㅈㅈ",
       "method": "토스페이",
       "classification": "식비"
+    },
+    {
+      "id": "9b17e3b4-5fd9-42f1-a2da-e60f2d32d49a",
+      "year": 2025,
+      "month": 10,
+      "day": 11,
+      "regDate": "2025.10.11",
+      "currentType": "earning",
+      "amount": 1230,
+      "description": "이히히",
+      "method": "카카오페이",
+      "classification": "월급"
     }
   ]
 }
