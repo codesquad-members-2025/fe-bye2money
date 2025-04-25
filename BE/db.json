@@ -1253,7 +1253,7 @@
       "month": 5,
       "regDate": "2025.05.02",
       "currentType": "earning",
-      "amount": 17000,
+      "amount": 12302113,
       "description": "똥응가히ㄴ히 냠냠\n사실 먹기 싫어!!! 아닌가..?",
       "method": "토스페이",
       "classification": "기타 수입",
@@ -1319,6 +1319,54 @@
       "description": "123",
       "method": "토스페이",
       "classification": "식비"
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 4,
+      "day": 25,
+      "regDate": "2025.04.25",
+      "currentType": "expense",
+      "amount": "1,231,323",
+      "description": "amount test",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "7e087d52-aeb8-4959-9c81-f9b2e1a8852f",
+      "year": 2025,
+      "month": 4,
+      "day": 25,
+      "regDate": "2025.04.25",
+      "currentType": "expense",
+      "amount": "1,231,323",
+      "description": "amount test",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 4,
+      "day": 25,
+      "regDate": "2025.04.25",
+      "currentType": "expense",
+      "amount": "123,231",
+      "description": "ㅎㅎ",
+      "method": "토스페이",
+      "classification": "생활"
+    },
+    {
+      "id": "17b89ed2-7985-4dc1-9fb2-40deb3f6c1a8",
+      "year": 2025,
+      "month": 4,
+      "day": 25,
+      "regDate": "2025.04.25",
+      "currentType": "expense",
+      "amount": "123,231",
+      "description": "ㅎㅎ",
+      "method": "토스페이",
+      "classification": "생활"
     }
   ]
 }
