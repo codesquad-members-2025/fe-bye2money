@@ -30,7 +30,9 @@ export default function FormBox({
   );
 
   useEffect(() => {
-    formDispatch({ type: "SET_ALL", payload: selectedTransactions });
+    if (selectedTransactions) {
+      formDispatch({ type: "SET_ALL", payload: selectedTransactions });
+    }
   }, [selectedTransactions]);
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
