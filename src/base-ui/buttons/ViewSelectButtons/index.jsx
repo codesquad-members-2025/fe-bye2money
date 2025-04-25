@@ -26,12 +26,7 @@ const StyledCircleNavLink = styled(NavLink)`
 
 export default function ViewSelectButtons() {
   const [searchParams] = useSearchParams();
-  const now = new Date();
-  const currentYear = parseInt(searchParams.get("year")) || now.getFullYear();
-  const currentMonth =
-    parseInt(searchParams.get("month")) || now.getMonth() + 1;
-
-  const queryParams = `year=${currentYear}&month=${currentMonth}`;
+  const queryParams = searchParams.toString(); // 전체 그대로 복사!
   return (
     <ButtonWrapper>
       <StyledCircleNavLink to={`/?${queryParams}`}>

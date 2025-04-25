@@ -24,8 +24,6 @@ const formatCurrencyWithComma = (value) => {
 const currencyUnitText = "원";
 
 export default function AmountInput({ amount, onChange }) {
-  // const [amount, setAmount] = useState("");
-
   const handleChange = (e) => {
     const input = e.target.value;
     const formatted = formatCurrencyWithComma(input);
@@ -36,7 +34,7 @@ export default function AmountInput({ amount, onChange }) {
     <AmountWrapper>
       <AmountInputWrapper
         type="text"
-        value={amount}
+        value={amount || ""}
         onChange={(e) => onChange(handleChange(e))}
         placeholder="0"
         required

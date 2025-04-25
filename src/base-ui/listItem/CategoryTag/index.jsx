@@ -29,6 +29,6 @@ const Tag = styled.div`
   font-family: ${({ theme }) => theme.font.sans};
   background-color: ${({ theme, $classification }) =>
     theme.color.token.chip[chipColorMap[$classification]]};
-  color: ${({ theme }) => theme.color.token.text.rev};
+  color: ${({ theme }) => theme.color.token.text.default};
   text-align: center;
 `;

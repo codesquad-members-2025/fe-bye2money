@@ -7,7 +7,7 @@ export default function DescriptionInput({ description, onChange }) {
   return (
     <TextAreaField
       maxLength={maxLength}
-      value={description}
+      value={description || ""}
       placeholder={placeholderText}
       onChange={(e) => onChange(e.target.value)}
       required

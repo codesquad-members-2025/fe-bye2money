@@ -1252,11 +1252,11 @@
       "id": "b2a3d4e5-7c6f-4b5d-8e2a-0a1b2c3d4e05",
       "month": 5,
       "regDate": "2025.05.02",
-      "currentType": "expense",
+      "currentType": "earning",
       "amount": 17000,
-      "description": "커피",
-      "method": "현금",
-      "classification": "식비",
+      "description": "똥응가히ㄴ히 냠냠\n사실 먹기 싫어!!! 아닌가..?",
+      "method": "토스페이",
+      "classification": "기타 수입",
       "year": 2025,
       "day": 2
     },
@@ -1264,11 +1264,11 @@
       "id": "c5d6e7f8-1a2b-4c3d-9e5f-0b1c2d3e4f06",
       "month": 5,
       "regDate": "2025.05.10",
-      "currentType": "earning",
+      "currentType": "expense",
       "amount": 120000,
-      "description": "기타수입",
-      "method": "이체",
-      "classification": "기타수입",
+      "description": "방구 히히",
+      "method": "카카오페이",
+      "classification": "교통",
       "year": 2025,
       "day": 10
     },
@@ -1307,6 +1307,18 @@
       "classification": "문화/여가",
       "year": 2025,
       "day": 27
+    },
+    {
+      "id": "",
+      "year": 2025,
+      "month": 4,
+      "day": 25,
+      "regDate": "2025.04.25",
+      "currentType": "expense",
+      "amount": "214,321,312",
+      "description": "123",
+      "method": "토스페이",
+      "classification": "식비"
     }
   ]
 }
