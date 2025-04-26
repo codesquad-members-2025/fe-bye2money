@@ -36,7 +36,7 @@ export default function LogView() {
         <MonthTransactionList
           transactions={mainPageState}
           onEdit={(item) => setSelectedTransactions(item)}
-          onDelete={(item) => deleteTransaction(item.mainPageDispatch)}
+          onDelete={(item) => deleteTransaction(item, mainPageDispatch)}
         />
       </LogBody>
     </LogContainer>

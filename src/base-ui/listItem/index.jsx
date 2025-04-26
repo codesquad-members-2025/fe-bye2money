@@ -6,10 +6,18 @@ import PaymentMethodText from "./PaymentMethodText";
 import AmountText from "./TotalExpenseLabel";
 import DeleteButton from "../buttons/DeleteButton";
 import { formatAmount } from "../../utils/amountChanger";
+import { useModal } from "../../constants/AlertModal";
 
 export default function ListItem({ item, onEdit, onDelete }) {
   const [ishover, setIshover] = useState(false);
   const { classification, description, method, amount, currentType } = item;
+  const openModal = useModal();
+  const deleteModalDataObj = {
+    message: "해당 내역을 삭제하시겠습니까?",
+    placeholder: null, // 삭제 시에는 placeholder는 필요없다.
+    selectedContent: item,
+    onConfirm: () => onDelete(item), // 삭제 핸들러 함수를 전달해야한다.
+  };
 
   return (
     <Container
@@ -24,7 +32,9 @@ export default function ListItem({ item, onEdit, onDelete }) {
         earning={currentType === "earning" ? formatAmount(amount) : null}
         expense={currentType === "expense" ? formatAmount(amount) : null}
       />
-      {ishover && <DeleteButton onClick={() => onDelete(item)} />}
+      {ishover && (
+        <DeleteButton onClick={() => openModal(deleteModalDataObj)} />
+      )}
     </Container>
   );
 }
