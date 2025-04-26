@@ -34,7 +34,10 @@ export default function ListItem({ item, onEdit, onDelete }) {
         expense={currentType === "expense" ? formatAmount(amount) : null}
       />
       {ishover && (
-        <DeleteButton onClick={() => openModal(deleteModalDataObj)} />
+        <DeleteButton
+          ishover={ishover}
+          onClick={() => openModal(deleteModalDataObj)}
+        />
       )}
     </Container>
   );
