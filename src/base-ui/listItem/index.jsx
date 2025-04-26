@@ -19,9 +19,15 @@ export default function ListItem({ item, onEdit, onDelete }) {
     onConfirm: () => onDelete(item), // 삭제 핸들러 함수를 전달해야한다.
   };
 
+  function handleContainerClick(e) {
+    const target = e.target;
+    if (target.closest("button")) return;
+    onEdit(item);
+  }
+
   return (
     <Container
-      onClick={() => onEdit(item)}
+      onClick={handleContainerClick}
       onMouseEnter={() => setIshover(true)}
       onMouseLeave={() => setIshover(false)}
     >
@@ -36,7 +42,10 @@ export default function ListItem({ item, onEdit, onDelete }) {
       {ishover && (
         <DeleteButton
           ishover={ishover}
-          onClick={() => openModal(deleteModalDataObj)}
+          onClick={() => {
+            openModal(deleteModalDataObj);
+            e.stopPropagation();
+          }}
         />
       )}
     </Container>
@@ -52,6 +61,7 @@ const Container = styled.li`
   background-color: ${({ theme }) => theme.color.token.surface.default};
   cursor: pointer;
   transition: background-color 0.3s;
+  z-index: 2;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.token.surface.point};

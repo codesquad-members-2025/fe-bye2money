@@ -5,10 +5,12 @@ export default function AmountText({
   expense = null,
   ishover,
 }) {
+  const unit = "원";
   return (
     <Text $ishover={ishover} $currentType={earning ? "income" : "expense"}>
       {expense ? "-" : ""}
       {earning ? earning : expense}
+      {unit}
     </Text>
   );
 }

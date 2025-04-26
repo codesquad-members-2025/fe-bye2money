@@ -1247,18 +1247,6 @@
       "classification": "문화/여가",
       "year": 2025,
       "day": 27
-    },
-    {
-      "id": "",
-      "year": 2025,
-      "month": 4,
-      "day": 25,
-      "regDate": "2025.04.25",
-      "currentType": "expense",
-      "amount": "214,321,312",
-      "description": "123",
-      "method": "토스페이",
-      "classification": "식비"
     }
   ]
 }
