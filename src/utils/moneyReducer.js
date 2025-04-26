@@ -1,3 +1,5 @@
+import { formatAmount } from "./amountChanger";
+
 export default function moneyReducer(items) {
   const moneyResult = items.reduce(
     (acc, item) => {
@@ -12,7 +14,7 @@ export default function moneyReducer(items) {
     { earning: 0, expense: 0 }
   );
   return {
-    earning: moneyResult.earning.toLocaleString(),
-    expense: moneyResult.expense.toLocaleString(),
+    earning: formatAmount(moneyResult.earning),
+    expense: formatAmount(moneyResult.expense),
   };
 }

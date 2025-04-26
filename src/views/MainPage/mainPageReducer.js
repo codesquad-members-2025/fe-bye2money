@@ -6,10 +6,12 @@ export default function mainPageReducer(state, action) {
     }
     case "EDIT_TRANSACTION": {
       //폼박스 컴포넌트에서 데이터 편집시 대응하는 로직
-      return [
-        ...state.filter((item) => item.id !== action.payload.id),
-        action.payload,
-      ];
+      return action.isSamePage
+        ? [
+            ...state.filter((item) => item.id !== action.payload.id),
+            action.payload,
+          ]
+        : state.filter((item) => item.id !== action.payload.id);
     }
     case "GET_ALL_TRANSACTION": {
       //데이터 전체 패치해올때 대응하는 로직

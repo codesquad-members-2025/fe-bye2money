@@ -10,10 +10,7 @@ export default function useFormLogic(
   setSelectedTransactions
 ) {
   const [searchParams] = useSearchParams();
-  const [formState, formDispatch] = useReducer(
-    reducer,
-    getInitialArg(selectedTransactions)
-  );
+  const [formState, formDispatch] = useReducer(reducer, getInitialArg());
   const [isValid, setIsValid] = useState(false);
 
   const now = new Date();
@@ -58,23 +55,26 @@ export default function useFormLogic(
       if (!res.ok) {
         alert("요청에 실패했습니다. 다시 시도해주세요.");
       }
-      if (
-        res.ok &&
-        currentMonth === formState.month &&
-        currentYear === formState.year
-      ) {
-        //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
-        dispatch({ type: "EDIT_TRANSACTION", payload: formState });
-        setSelectedTransactions(null);
+      if (res.ok) {
+        const isSamePage =
+          currentMonth === formState.month && currentYear === formState.year
+            ? true
+            : false;
+        dispatch({
+          type: "EDIT_TRANSACTION",
+          payload: formState,
+          isSamePage: isSamePage,
+        });
+        formDispatch({ type: "SET_ALL", payload: getInitialArg() });
       }
     } else {
-      formDispatch({ type: "SET_ID", id: generateUUID() });
+      const newFormState = { ...formState, id: generateUUID() };
       res = await fetch(`http://localhost:3001/transactions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formState),
+        body: JSON.stringify(newFormState),
       });
       if (!res.ok) {
         alert("요청에 실패했습니다. 다시 시도해주세요.");
@@ -85,9 +85,11 @@ export default function useFormLogic(
         currentYear === formState.year
       ) {
         //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
-        dispatch({ type: "ADD_TRANSACTION", payload: formState });
+        dispatch({ type: "ADD_TRANSACTION", payload: newFormState });
       }
+      formDispatch({ type: "SET_ALL", payload: getInitialArg() });
     }
+    setSelectedTransactions(null);
   };
 
   useEffect(() => {
@@ -137,7 +139,7 @@ function reducer(state, action) {
   }
 }
 
-function getInitialArg(selectedTransactions = null) {
+function getInitialArg() {
   let initialArg = {
     ...normalizeDate(getToday()),
     id: "",

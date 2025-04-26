@@ -26,7 +26,7 @@ function getMoneyLabel(type, amount) {
   return (
     <Item>
       <span>{TYPE_LABEL[type]}</span>
-      <span>{Number(amount).toLocaleString()}원</span>
+      <span>{amount}원</span>
     </Item>
   );
 }
