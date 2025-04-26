@@ -145,18 +145,6 @@
       "day": 26
     },
     {
-      "id": "802eacfe-6a7e-4d27-93d4-03cd4180e92e",
-      "month": 4,
-      "regDate": "2025.04.01",
-      "currentType": "expense",
-      "amount": 94008,
-      "description": "의료/건강",
-      "method": "현금",
-      "classification": "의료/건강",
-      "year": 2025,
-      "day": 1
-    },
-    {
       "id": "f15d8b57-62c1-48d5-906f-0d7d11f0431a",
       "month": 4,
       "regDate": "2025.04.12",
@@ -239,18 +227,6 @@
       "classification": "월급",
       "year": 2025,
       "day": 21
-    },
-    {
-      "id": "7fb29401-c450-4cf1-bda9-9dd55204ef9a",
-      "month": 4,
-      "regDate": "2025.04.04",
-      "currentType": "earning",
-      "amount": 70362,
-      "description": "기타수입",
-      "method": "카드",
-      "classification": "기타수입",
-      "year": 2025,
-      "day": 4
     },
     {
       "id": "12ad04da-8c1b-489c-a82f-78e517820e63",
@@ -649,30 +625,6 @@
       "day": 8
     },
     {
-      "id": "95d7a65b-da42-48f5-b630-4a8b647d55dd",
-      "month": 4,
-      "regDate": "2025.04.03",
-      "currentType": "earning",
-      "amount": 202387,
-      "description": "용돈",
-      "method": "카드",
-      "classification": "용돈",
-      "year": 2025,
-      "day": 3
-    },
-    {
-      "id": "1720a5e9-8766-49b8-99fd-eb5f807a8a19",
-      "month": 4,
-      "regDate": "2025.04.05",
-      "currentType": "expense",
-      "amount": 476306,
-      "description": "기타",
-      "method": "현금",
-      "classification": "기타",
-      "year": 2025,
-      "day": 5
-    },
-    {
       "id": "c4f89c7e-f288-4ffc-b637-560e2536e2ee",
       "month": 4,
       "regDate": "2025.04.18",
@@ -695,18 +647,6 @@
       "classification": "기타수입",
       "year": 2025,
       "day": 10
-    },
-    {
-      "id": "fe7d3b63-1b64-49fa-9434-35dcb36dbb55",
-      "month": 4,
-      "regDate": "2025.04.04",
-      "currentType": "earning",
-      "amount": 110844,
-      "description": "용돈",
-      "method": "카드",
-      "classification": "용돈",
-      "year": 2025,
-      "day": 4
     },
     {
       "id": "71038716-7260-422a-85e1-a233624a6486",

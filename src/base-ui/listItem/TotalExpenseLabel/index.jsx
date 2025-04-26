@@ -5,7 +5,8 @@ const Item = styled.div`
   align-items: center;
   gap: 8px;
   font-family: ${({ theme }) => theme.font.serif};
-  color: ${({ theme }) => theme.color.token.text.default};
+  color: ${({ theme, $type }) => theme.color.token.text.default};
+
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -15,9 +16,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  transform: ${({ $ishover }) =>
-    $ishover ? `translateX(-57px)` : `translateX(0px)`};
-  transition: transform 0.3s ease;
 `;
 
 const TYPE_LABEL = {
@@ -27,20 +25,16 @@ const TYPE_LABEL = {
 
 function getMoneyLabel(type, amount) {
   return (
-    <Item>
+    <Item $type={type}>
       <span>{TYPE_LABEL[type]}</span>
       <span>{amount}원</span>
     </Item>
   );
 }
 
-export default function AmountText({
-  earning = null,
-  expense = null,
-  ishover,
-}) {
+export default function TotalExpenseLabel({ earning = null, expense = null }) {
   return (
-    <Wrapper $ishover={ishover}>
+    <Wrapper>
       {earning && getMoneyLabel("earning", earning)}
       {expense && getMoneyLabel("expense", expense)}
     </Wrapper>

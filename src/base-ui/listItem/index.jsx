@@ -3,7 +3,7 @@ import { useState } from "react";
 import CategoryTag from "./CategoryTag";
 import DescriptionText from "./DescriptionText";
 import PaymentMethodText from "./PaymentMethodText";
-import AmountText from "./TotalExpenseLabel";
+import AmountText from "./AmountText";
 import DeleteButton from "../buttons/DeleteButton";
 import { formatAmount } from "../../utils/amountChanger";
 import { useModal } from "../../constants/AlertModal";
@@ -44,6 +44,7 @@ export default function ListItem({ item, onEdit, onDelete }) {
 }
 
 const Container = styled.li`
+  position: relative;
   display: flex;
   gap: 16px;
   align-items: center;
