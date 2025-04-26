@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
   gap: 4px;
   display: inline-flex;
   align-items: center;
@@ -14,6 +18,8 @@ const StyledButton = styled.button`
   line-height: ${({ theme }) => theme.font.lineHeight.sm};
   color: ${({ theme }) => theme.color.token.danger.text};
   cursor: pointer;
+  opacity: ${({ $ishover }) => ($ishover ? 1 : 0)};
+  transition: opacity 1s ease;
 
   &.hover {
     opacity: 0.8;
@@ -24,10 +30,10 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function DeleteButton({ onClick }) {
+export default function DeleteButton({ ishover, onClick }) {
   const deleteText = "삭제";
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton $ishover={ishover} onClick={onClick}>
       <svg
         width="16"
         height="17"

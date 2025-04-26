@@ -15,6 +15,7 @@ const Header = styled.div`
   justify-content: space-between;
 `;
 const Body = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   border-top: 1px solid ${({ theme }) => theme.color.token.border.default};

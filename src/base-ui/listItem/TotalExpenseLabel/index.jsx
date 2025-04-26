@@ -15,6 +15,9 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  transform: ${({ $ishover }) =>
+    $ishover ? `translateX(-57px)` : `translateX(0px)`};
+  transition: transform 0.3s ease;
 `;
 
 const TYPE_LABEL = {
@@ -31,9 +34,13 @@ function getMoneyLabel(type, amount) {
   );
 }
 
-export default function TotalExpenseLabel({ earning = null, expense = null }) {
+export default function AmountText({
+  earning = null,
+  expense = null,
+  ishover,
+}) {
   return (
-    <Wrapper>
+    <Wrapper $ishover={ishover}>
       {earning && getMoneyLabel("earning", earning)}
       {expense && getMoneyLabel("expense", expense)}
     </Wrapper>

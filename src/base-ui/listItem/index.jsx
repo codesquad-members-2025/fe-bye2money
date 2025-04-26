@@ -29,11 +29,15 @@ export default function ListItem({ item, onEdit, onDelete }) {
       <DescriptionText description={description} />
       <PaymentMethodText method={method} />
       <AmountText
+        ishover={ishover}
         earning={currentType === "earning" ? formatAmount(amount) : null}
         expense={currentType === "expense" ? formatAmount(amount) : null}
       />
       {ishover && (
-        <DeleteButton onClick={() => openModal(deleteModalDataObj)} />
+        <DeleteButton
+          ishover={ishover}
+          onClick={() => openModal(deleteModalDataObj)}
+        />
       )}
     </Container>
   );
