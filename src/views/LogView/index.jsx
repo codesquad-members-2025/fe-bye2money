@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import MonthlyInfomation from "../../units/MonthlyInfomation";
 import MonthTransactionList from "../../units/MonthTransactionList";
+import { deleteTransaction } from "./deleteTransaction";
 
 const LogContainer = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ export default function LogView() {
         <MonthTransactionList
           transactions={mainPageState}
           onEdit={(item) => setSelectedTransactions(item)}
+          onDelete={(item) => deleteTransaction(item.mainPageDispatch)}
         />
       </LogBody>
     </LogContainer>

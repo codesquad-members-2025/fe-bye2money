@@ -29,6 +29,7 @@ export default function DailyTransactionList({
 }) {
   const { year, month, day } = transactions[0];
   const { earning, expense } = moneyReducer(transactions);
+
   return (
     <Container>
       <Header>
