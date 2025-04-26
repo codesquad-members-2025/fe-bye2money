@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
   gap: 4px;
   display: inline-flex;
   align-items: center;
@@ -14,7 +18,6 @@ const StyledButton = styled.button`
   line-height: ${({ theme }) => theme.font.lineHeight.sm};
   color: ${({ theme }) => theme.color.token.danger.text};
   cursor: pointer;
-
   &.hover {
     opacity: 0.8;
   }
