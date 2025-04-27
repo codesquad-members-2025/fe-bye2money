@@ -1141,18 +1141,6 @@
       "day": 27
     },
     {
-      "id": "c3e3a8c1-3f3b-4a4e-8a3c-0d0a1b3e3d01",
-      "month": 3,
-      "regDate": "2025.03.03",
-      "currentType": "expense",
-      "amount": 22000,
-      "description": "식비",
-      "method": "현금",
-      "classification": "식비",
-      "year": 2025,
-      "day": 3
-    },
-    {
       "id": "d4f2e8b2-9d9c-4a7e-bb5c-1e2e3f4a5b02",
       "month": 3,
       "regDate": "2025.03.07",
@@ -1163,18 +1151,6 @@
       "classification": "용돈",
       "year": 2025,
       "day": 7
-    },
-    {
-      "id": "e3b7c6d5-8c6a-4b6d-9b3e-5e4f7a4c3b03",
-      "month": 3,
-      "regDate": "2025.03.15",
-      "currentType": "expense",
-      "amount": 43000,
-      "description": "교통(수정)",
-      "method": "카드",
-      "classification": "교통",
-      "year": 2025,
-      "day": 15
     },
     {
       "id": "a8d9e1f3-6b3d-4a4a-9d1e-8b3f7e6a4c04",
