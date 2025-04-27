@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { InputField } from "../InputField";
 import { handleChange } from "./inputDateHandler";
+import DefaultLabel from "../Label/DefualtLabel";
 
 const RedDateBox = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 4px;
 `;
 // const SmallLightText = styled.span`
@@ -15,8 +17,10 @@ const RedDateBox = styled.div`
 // `;
 
 export default function DateInput({ value, onChange }) {
+  const dateLabelText = "일자";
   return (
     <RedDateBox>
+      <DefaultLabel>{dateLabelText}</DefaultLabel>
       <InputField
         placeholder="YYYY.MM.DD"
         value={value || ""}
