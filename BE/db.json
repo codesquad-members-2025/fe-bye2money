@@ -145,18 +145,6 @@
       "day": 26
     },
     {
-      "id": "802eacfe-6a7e-4d27-93d4-03cd4180e92e",
-      "month": 4,
-      "regDate": "2025.04.01",
-      "currentType": "expense",
-      "amount": 94067,
-      "description": "의료/건강",
-      "method": "현금",
-      "classification": "의료/건강",
-      "year": 2025,
-      "day": 1
-    },
-    {
       "id": "f15d8b57-62c1-48d5-906f-0d7d11f0431a",
       "month": 4,
       "regDate": "2025.04.12",
@@ -325,18 +313,6 @@
       "day": 26
     },
     {
-      "id": "304189fe-d73c-4577-9207-c5786cdbbfe7",
-      "month": 4,
-      "regDate": "2025.04.01",
-      "currentType": "expense",
-      "amount": 331980,
-      "description": "문화/여가",
-      "method": "카카오페이",
-      "classification": "문화/여가",
-      "year": 2025,
-      "day": 1
-    },
-    {
       "id": "af001959-a196-47d2-a624-730aaebbc59b",
       "month": 4,
       "regDate": "2025.04.08",
@@ -347,18 +323,6 @@
       "classification": "기타수입",
       "year": 2025,
       "day": 8
-    },
-    {
-      "id": "a7e666df-7c05-4467-984e-c95dd2923fa7",
-      "month": 4,
-      "regDate": "2025.04.05",
-      "currentType": "earning",
-      "amount": 161561,
-      "description": "기타수입",
-      "method": "카드",
-      "classification": "기타수입",
-      "year": 2025,
-      "day": 5
     },
     {
       "id": "f11d0d4b-d040-46d4-81b3-16d771f8a2ef",
@@ -1194,7 +1158,7 @@
       "regDate": "2025.03.03",
       "currentType": "expense",
       "amount": 22000,
-      "description": "식비",
+      "description": "히히히히 맛있다!",
       "method": "현금",
       "classification": "식비",
       "year": 2025,
@@ -1239,14 +1203,14 @@
     {
       "id": "b2a3d4e5-7c6f-4b5d-8e2a-0a1b2c3d4e05",
       "month": 5,
-      "regDate": "2025.05.02",
-      "currentType": "earning",
+      "regDate": "2025.05.03",
+      "currentType": "expense",
       "amount": 17000,
       "description": "똥응가히ㄴ히 냠냠\n사실 먹기 싫어!!! 아닌가..?",
       "method": "토스페이",
       "classification": "기타수입",
       "year": 2025,
-      "day": 2
+      "day": 3
     },
     {
       "id": "c5d6e7f8-1a2b-4c3d-9e5f-0b1c2d3e4f06",
@@ -1307,6 +1271,42 @@
       "description": "ㅎㅇ",
       "method": "토스페이",
       "classification": "문화/여가"
+    },
+    {
+      "id": "a7bb599a-9db3-4195-951f-c930d5df43d1",
+      "year": 2025,
+      "month": 6,
+      "day": 1,
+      "regDate": "2025.06.01",
+      "currentType": "expense",
+      "amount": 10000,
+      "description": "프로틴",
+      "method": "감자10개",
+      "classification": "쇼핑/뷰티"
+    },
+    {
+      "id": "62b29d4b-017e-4fdd-86e8-d4ec09490c7b",
+      "year": 2024,
+      "month": 2,
+      "day": 1,
+      "regDate": "2024.02.01",
+      "currentType": "earning",
+      "amount": 1110,
+      "description": "아뱌뱌우땨땨",
+      "method": "히히히히",
+      "classification": "용돈"
+    },
+    {
+      "id": "2d84e0cd-a32c-4a91-bec8-80c288725816",
+      "year": 2024,
+      "month": 12,
+      "day": 1,
+      "regDate": "2024.12.01",
+      "currentType": "expense",
+      "amount": 12303,
+      "description": "히히히",
+      "method": "카카오페이",
+      "classification": "교통"
     }
   ]
 }

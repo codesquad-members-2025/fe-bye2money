@@ -5,6 +5,14 @@ import getOptionList from "./getOptionList";
 const DropBox = styled(OptionUl)`
   justify-content: space-between;
 `;
-export default function OptionList({ options, onSelectOption }) {
-  return <DropBox>{getOptionList(options, onSelectOption)}</DropBox>;
+export default function OptionList({
+  options,
+  onSelectOption,
+  categoryActivate,
+}) {
+  return (
+    <DropBox $categoryActivate={categoryActivate}>
+      {getOptionList(options, onSelectOption)}
+    </DropBox>
+  );
 }

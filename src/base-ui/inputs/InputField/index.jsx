@@ -29,8 +29,7 @@ const TextAreaField = styled.textarea`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) =>
-      theme.color.token.text.weak}; // 어두운 회색 계열 추천
+    background-color: ${({ theme }) => theme.color.token.text.weak};
     border-radius: 3px;
   }
 
