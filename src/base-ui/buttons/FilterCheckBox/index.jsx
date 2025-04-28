@@ -22,6 +22,7 @@ const SummaryLabel = styled.span`
   font-size: ${({ theme }) => theme.font.size.xs};
   line-height: ${({ theme }) => theme.font.lineHeight.md};
   color: ${({ theme }) => theme.color.token.text.default};
+  min-width: 70px;
 `;
 
 const type = {
@@ -40,15 +41,22 @@ export default function FilterCheckBox({
       <CheckBox>
         {isCheckBoxActive ? (
           <svg
-            width="20"
-            height="21"
-            viewBox="0 0 20 21"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect y="0.5" width="20" height="20" rx="5" fill="black" />
+            <rect
+              x="0.333252"
+              y="0.333344"
+              width="13.3333"
+              height="13.3333"
+              rx="6.66667"
+              fill="black"
+            />
             <path
-              d="M15 7.5L8.125 14.1667L5 11.1364"
+              d="M10.3332 5L5.74984 9.44444L3.6665 7.42424"
               stroke="white"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -56,18 +64,18 @@ export default function FilterCheckBox({
           </svg>
         ) : (
           <svg
-            width="20"
-            height="21"
-            viewBox="0 0 20 21"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
-              x="0.5"
-              y="1"
-              width="19"
-              height="19"
-              rx="4.5"
+              x="0.833252"
+              y="0.833344"
+              width="12.3333"
+              height="12.3333"
+              rx="6.16667"
               stroke="black"
             />
           </svg>
