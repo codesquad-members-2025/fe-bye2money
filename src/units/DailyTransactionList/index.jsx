@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  z-index: 1;
 `;
 
 const Header = styled.div`
@@ -15,7 +16,6 @@ const Header = styled.div`
   justify-content: space-between;
 `;
 const Body = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   border-top: 1px solid ${({ theme }) => theme.color.token.border.default};

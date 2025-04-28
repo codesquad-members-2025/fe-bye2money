@@ -1,23 +1,30 @@
 import styled from "styled-components";
 import useFormLogic from "./useFormLogic";
-import DateInput from "../../base-ui/inputs/DateInput";
-import TypeToggle from "../../base-ui/inputs/TypeToggle";
-import AmountInput from "../../base-ui/inputs/AmountInput";
-import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
-import PaymentSelect from "../../base-ui/select/PaymentSelect";
-import ClassificationSelect from "../../base-ui/select/ClassificationSelect";
 import SubmitButton from "../../base-ui/buttons/SubmitButton";
 import { useEffect } from "react";
+import DateForm from "./DateForm";
+import ValueForm from "./ValueForm";
+import DescriptionForm from "./DescriptionForm";
+import Paymentform from "./PaymentForm";
+import ClassificationForm from "./ClassificationForm";
 
 const StyledForm = styled.form`
+  position: relative; // 기준이 되는 요소
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  padding: 16px;
+  padding: 16px 24px;
   background-color: ${({ theme }) => theme.color.token.surface.default};
   border: 1px solid ${({ theme }) => theme.color.token.text.default};
+  justify-content: space-between;
+  width: 894px;
+  height: 76px;
+  z-index: 3;
 `;
 
+const Divider = styled.div`
+  width: 1px;
+  background-color: ${({ theme }) => theme.color.token.border.default};
+`;
 export default function FormBox({
   dispatch,
   selectedTransactions,
@@ -36,7 +43,7 @@ export default function FormBox({
   }, [selectedTransactions]);
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
-      <DateInput
+      <DateForm
         value={formState.regDate}
         onChange={(val) =>
           formDispatch({
@@ -48,34 +55,33 @@ export default function FormBox({
           })
         }
       />
-      <TypeToggle
+      <Divider />
+      <ValueForm
         currentType={formState.currentType}
         onClick={(type) =>
           formDispatch({ type: "SET_CURRENTTYPE", currentType: type })
         }
-      />
-      <AmountInput
         amount={formState.amount}
         onChange={(amount) => {
           formDispatch({ type: "SET_AMOUNT", amount });
         }}
       />
-
-      <DescriptionInput
+      <Divider />
+      <DescriptionForm
         description={formState.description}
         onChange={(val) =>
           formDispatch({ type: "SET_DESCRIPTION", description: val })
         }
       />
-
-      <PaymentSelect
+      <Divider />
+      <Paymentform
         method={formState.method}
         onSelectOption={(method) =>
           formDispatch({ type: "SET_METHOD", method: method })
         }
       />
-
-      <ClassificationSelect
+      <Divider />
+      <ClassificationForm
         classification={formState.classification}
         transactionType={formState.currentType}
         onSelectOption={(option) =>

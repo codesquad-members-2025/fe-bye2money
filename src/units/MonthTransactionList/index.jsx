@@ -6,6 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  z-index: 1;
 `;
 export default function MonthTransactionList({
   transactions,

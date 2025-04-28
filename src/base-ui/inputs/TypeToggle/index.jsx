@@ -12,7 +12,7 @@ const ToggleButton = styled.button`
     box-shadow: none; /* ✅ 파란 테두리 완전히 제거 */
   }
 `;
-const ToggleWrapper = styled.div`
+const Icon = styled.svg`
   width: 16px;
   height: 16px;
 `;
@@ -20,13 +20,7 @@ const ToggleWrapper = styled.div`
 function getType(type) {
   if (type === "earning") {
     return (
-      <svg
-        width="17"
-        height="16"
-        viewBox="0 0 17 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <Icon viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M4.05566 8H12.0557"
           stroke="black"
@@ -39,24 +33,18 @@ function getType(type) {
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </svg>
+      </Icon>
     );
   } else if (type === "expense") {
     return (
-      <svg
-        width="17"
-        height="16"
-        viewBox="0 0 17 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <Icon viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M4.05554 8H12.0555"
           stroke="black"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </svg>
+      </Icon>
     );
   } else {
     return null;
@@ -77,10 +65,8 @@ function toggleType(currentType) {
 
 export default function TypeToggle({ currentType: type, onClick }) {
   return (
-    // <ToggleWrapper>
     <ToggleButton type="button" onClick={() => onClick(toggleType(type))}>
       {getType(type)}
     </ToggleButton>
-    // </ToggleWrapper>
   );
 }

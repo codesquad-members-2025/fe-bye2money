@@ -19,6 +19,7 @@ const LogBody = styled.div`
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  z-index: 1;
 `;
 //setSelectedTransactions은 로그뷰에 내려줘야한다.
 export default function LogView() {

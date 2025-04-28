@@ -20,6 +20,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   opacity: ${({ $ishover }) => ($ishover ? 1 : 0)};
   transition: opacity 1s ease;
+  z-index: 1;
 
   &.hover {
     opacity: 0.8;

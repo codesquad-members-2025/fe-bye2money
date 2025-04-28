@@ -4,9 +4,7 @@ import CategorySelectButton from "../CategorySelect/CategorySelectButton";
 import OptionList from "./OptionList";
 import methodReducer from "./methodReducer";
 
-const OptionWrapper = styled.div`
-  position: relative; // 기준이 되는 요소
-`;
+const OptionWrapper = styled.div``;
 
 export default function PaymentSelect({ method, onSelectOption }) {
   const [categoryActivate, setCategoryActivate] = useState(false);

@@ -9,20 +9,23 @@ const InputField = styled.input`
   border: none;
   outline: none;
   height: 16px;
+  width: 88px;
 `;
 
 const TextAreaField = styled.textarea`
   font-weight: ${({ theme }) => theme.font.weight.semibold};
+  line-height: ${({ theme }) => theme.font.lineHeight.sm};
   font-size: ${({ theme }) => theme.font.size.xs};
   color: ${({ theme }) => theme.color.token.text.default};
   resize: none;
   border: none;
   outline: none;
   height: 16px;
+  width: 160px;
 
   /* 스크롤바 커스텀 */
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
   }
 
   &::-webkit-scrollbar-thumb {

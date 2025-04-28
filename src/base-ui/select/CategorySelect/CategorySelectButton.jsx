@@ -4,9 +4,8 @@ import styled from "styled-components";
 import DefaultButton from "../DefaultButton";
 
 const SelectButton = styled(DefaultButton)`
-  font-weight: ${({ theme }) => theme.font.weight.semibold};
-  font-size: ${({ theme }) => theme.font.size.xs};
-  color: ${({ theme }) => theme.color.token.text.weak};
+  /* position: relative; // 기준이 되는 요소 */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,10 +17,17 @@ const SelectButton = styled(DefaultButton)`
   }
 `;
 
+const ButtonText = styled.div`
+  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  font-size: ${({ theme }) => theme.font.size.xs};
+  color: ${({ theme }) => theme.color.token.text.weak};
+  line-height: ${({ theme }) => theme.font.lineHeight.sm};
+`;
+
 export default function CategorySelectButton({ input, onClick }) {
   return (
     <SelectButton type="button" onClick={onClick}>
-      <span>{input || "선택하세요"}</span>
+      <ButtonText>{input || "선택하세요"}</ButtonText>
       <svg
         width="10"
         height="6"
