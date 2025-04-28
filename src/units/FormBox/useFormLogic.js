@@ -2,6 +2,7 @@ import { useReducer, useState, useEffect } from "react";
 import { normalizeDate } from "../../base-ui/inputs/DateInput/inputDateHandler";
 import generateUUID from "./idGenerator";
 import { useSearchParams } from "react-router-dom";
+import getIsChange from "./getIsChange";
 
 //reducer 함수 분리 필요! -> 메인페이지와 연결되면 리팩토링 시작
 export default function useFormLogic(
@@ -19,19 +20,36 @@ export default function useFormLogic(
     parseInt(searchParams.get("month")) || now.getMonth() + 1;
 
   const getIsValid = () => {
-    if (!formState.regDate || formState.regDate.length !== 10) {
-      return { ok: false, reason: "등록 날짜를 입력해주세요" };
-    } else if (!formState.amount) {
-      return { ok: false, reason: "금액을 입력해주세요" };
-    } else if (!formState.description) {
-      return { ok: false, reason: "내용을 입력해주세요" };
-    } else if (!formState.method) {
-      return { ok: false, reason: "결제수단을 선택해주세요" };
-    } else if (!formState.classification) {
-      return { ok: false, reason: "분류를 선택해주세요" };
-    } else {
-      return { ok: true };
+    const validations = [
+      {
+        condition: !formState.regDate || formState.regDate.length !== 10,
+        reason: "등록 날짜를 입력해주세요",
+      },
+      {
+        condition: !formState.amount,
+        reason: "금액을 입력해주세요",
+      },
+      {
+        condition: !formState.description,
+        reason: "내용을 입력해주세요",
+      },
+      {
+        condition: !formState.method,
+        reason: "결제수단을 선택해주세요",
+      },
+      {
+        condition: !formState.classification,
+        reason: "분류를 선택해주세요",
+      },
+    ];
+
+    for (const { condition, reason } of validations) {
+      if (condition) {
+        return { ok: false, reason };
+      }
     }
+
+    return { ok: true };
   };
 
   const handleSubmit = async (e) => {
@@ -93,7 +111,9 @@ export default function useFormLogic(
   };
 
   useEffect(() => {
-    setIsValid(getIsValid().ok);
+    selectedTransactions
+      ? setIsValid(getIsChange(formState, selectedTransactions))
+      : setIsValid(getIsValid().ok);
   }, [formState]);
 
   return {

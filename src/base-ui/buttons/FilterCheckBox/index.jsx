@@ -85,7 +85,3 @@ export default function FilterCheckBox({
     </StyledCheckBox>
   );
 }
-
-//비활성화인 체크박스
-
-//활성화 체크박스

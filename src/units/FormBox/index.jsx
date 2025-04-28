@@ -7,7 +7,6 @@ import ValueForm from "./ValueForm";
 import DescriptionForm from "./DescriptionForm";
 import Paymentform from "./PaymentForm";
 import ClassificationForm from "./ClassificationForm";
-
 const StyledForm = styled.form`
   position: relative; // 기준이 되는 요소
   display: flex;
