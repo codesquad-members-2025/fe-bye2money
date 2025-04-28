@@ -4,7 +4,6 @@ const OptionUl = styled.ul`
   position: absolute;
   top: 100%;
   /* left: -24px; */
-  transform: translateX(-24px);
   /* transform: translateY(0%); */
   list-style: none;
   padding: 0px 24px;
@@ -13,6 +12,11 @@ const OptionUl = styled.ul`
   width: 152px;
   border: 1px solid ${({ theme }) => theme.color.token.border.default};
   z-index: 2;
+  transform-origin: top;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(-24px)
+    scaleY(${({ $categoryActivate }) => ($categoryActivate ? 1 : 0)});
+  opacity: ${({ $categoryActivate }) => ($categoryActivate ? 1 : 0)};
 `;
 
 const DefaultLi = styled.li`

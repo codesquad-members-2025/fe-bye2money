@@ -32,6 +32,7 @@ export default function OptionList({
   onSelectOption,
   onAdd,
   onDelete,
+  categoryActivate,
 }) {
   const openModal = useModal();
   const addText = "추가하기";
@@ -94,7 +95,7 @@ export default function OptionList({
 
   return (
     <>
-      <OptionUl>
+      <OptionUl $categoryActivate={categoryActivate}>
         {getOptionList(options, onSelectOption, openModal)}
         <AddLi onClick={() => openModal(openModalDataObj)}>{addText}</AddLi>
       </OptionUl>

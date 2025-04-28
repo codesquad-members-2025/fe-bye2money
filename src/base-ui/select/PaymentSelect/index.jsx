@@ -21,17 +21,16 @@ export default function PaymentSelect({ method, onSelectOption }) {
         }}
         input={method}
       />
-      {categoryActivate && (
-        <OptionList
-          options={methods}
-          onSelectOption={(option) => {
-            onSelectOption(option);
-            setCategoryActivate(false);
-          }}
-          onAdd={(method) => dispatch({ type: "ADD", method: method })}
-          onDelete={(method) => dispatch({ type: "DELETE", method: method })}
-        />
-      )}
+      <OptionList
+        options={methods}
+        onSelectOption={(option) => {
+          onSelectOption(option);
+          setCategoryActivate(false);
+        }}
+        onAdd={(method) => dispatch({ type: "ADD", method: method })}
+        onDelete={(method) => dispatch({ type: "DELETE", method: method })}
+        categoryActivate={categoryActivate}
+      />
     </OptionWrapper>
   );
 }
