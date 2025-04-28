@@ -4,8 +4,8 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import getYearMonth from '../shared/utils/getYearMonth';
-import buildUrlWithPage from '../shared/utils/buildUrlWithPage';
+import { getYearMonth } from '../shared/utils/date';
+import { buildUrlWithPage } from '../shared/utils/routing';
 
 import HomePage from '../pages/HomePage';
 import CalendarPage from '../pages/CalendarPage';
@@ -17,8 +17,6 @@ import Content from './Content';
 function AppRouter() {
   const { year, month } = getYearMonth(new Date());
   const initialUrl = buildUrlWithPage(year, month, 'home');
-
-  console.log(initialUrl);
 
   return (
     <Router>

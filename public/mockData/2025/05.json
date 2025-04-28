@@ -3,31 +3,34 @@
   "month": "05",
   "records": [
     {
-      "id": "38472894783738237893982487",
-      "category": "취미",
-      "description": "펠트키트 구매",
+      "id": "dfb46503-4e83-428b-8c00-953303d76be6",
+      "category": "기타 수입",
+      "description": "부수입",
       "paymentMethod": "현대카드",
       "amount": 20000,
       "type": "income",
-      "timestamp": "2024-08-16T12:34:56Z"
+      "date": "2025-05-10",
+      "createdAt": "2025-05-16T12:34:56Z"
     },
     {
-      "id": "38472892478373827842393982487",
-      "category": "취미",
-      "description": "펠트키트 구매2",
+      "id": "04c953af-3dcd-4c7a-ba84-d81088f7c471",
+      "category": "용돈",
+      "description": "용돈이다!!",
       "paymentMethod": "현대카드",
-      "amount": 10000,
+      "amount": 30000,
       "type": "income",
-      "timestamp": "2024-08-15T12:34:56Z"
+      "date": "2025-05-09",
+      "createdAt": "2025-05-15T12:34:56Z"
     },
     {
-      "id": "384325472894783738275893982487",
-      "category": "취미",
-      "description": "펠트키트 구매3",
+      "id": "602128f3-5c61-4fcf-bb60-4303a1136863",
+      "category": "월급",
+      "description": "월급이다!!",
       "paymentMethod": "비씨카드",
-      "amount": 14000,
+      "amount": 1000000,
       "type": "income",
-      "timestamp": "2024-08-14T12:34:56Z"
+      "date": "2025-05-01",
+      "createdAt": "2025-05-14T12:34:56Z"
     }
   ]
 }

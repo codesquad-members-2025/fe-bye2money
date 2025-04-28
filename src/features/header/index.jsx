@@ -7,7 +7,7 @@ import StatsIcon from '../../assets/icons/chart.svg?react';
 
 import useMonthNavigator from './hooks/useMonthNavigator';
 import usePageNavigator from './hooks/usePageNavigator';
-import { getActiveTabFromPath } from '../../shared/utils/getActiveTabFromPath';
+import { getActiveTabFromPath } from '../../shared/utils/routing';
 import LogoSection from './components/LogoSection';
 import MonthNavigator from './components/MonthNavigator';
 import TabNavigation from './components/TabNavigation';

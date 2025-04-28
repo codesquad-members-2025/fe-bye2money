@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import buildUrlWithPage from '../../../shared/utils/buildUrlWithPage';
+import { buildUrlWithPage } from '../../../shared/utils/routing';
 
 function useMonthNavigator() {
   const { year, month } = useParams();

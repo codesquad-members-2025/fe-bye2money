@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import {
+  getYearMonth,
   isValidYear,
   isValidMonth,
-} from '../../../shared/utils/dateValidation';
-import getYearMonth from '../../../shared/utils/getYearMonth';
+} from '../../../shared/utils/date';
 import { PAGE_TYPES } from '../../../shared/constants/pageTypes';
 
 export default function usePageNavigator() {

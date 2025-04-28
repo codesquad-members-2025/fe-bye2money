@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useFetchRecordsByDate = (year, month) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -25,11 +25,18 @@ const useFetchRecordsByDate = (year, month) => {
     if (year && month) {
       setLoading(true);
       setError(null);
+      setData([]);
       fetchData(year, month);
     }
   }, [year, month]);
 
-  return { data, loading, error };
+  const refetch = () => {
+    setLoading(true);
+    setError(null);
+    fetchData(year, month);
+  };
+
+  return { data, loading, error, refetch };
 };
 
 export default useFetchRecordsByDate;
