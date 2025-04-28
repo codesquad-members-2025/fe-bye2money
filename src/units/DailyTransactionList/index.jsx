@@ -27,6 +27,7 @@ export default function DailyTransactionList({
   transactions,
   onEdit,
   onDelete,
+  selectedTransactions,
 }) {
   const { year, month, day } = transactions[0];
   const { earning, expense } = moneyReducer(transactions);
@@ -37,14 +38,34 @@ export default function DailyTransactionList({
         <DateLabel year={year} month={month} day={day} />
         <TotalExpenseLabel earning={earning} expense={expense} />
       </Header>
-      <Body>{renderTransactionList(transactions, onEdit, onDelete)}</Body>
+      <Body>
+        {renderTransactionList(
+          transactions,
+          onEdit,
+          onDelete,
+          selectedTransactions
+        )}
+      </Body>
     </Container>
   );
 }
 
-function renderTransactionList(transactions, onEdit, onDelete) {
+function renderTransactionList(
+  transactions,
+  onEdit,
+  onDelete,
+  selectedTransactions
+) {
   return transactions.map((log) => {
     const id = log.id;
-    return <ListItem key={id} item={log} onEdit={onEdit} onDelete={onDelete} />;
+    return (
+      <ListItem
+        key={id}
+        item={log}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        selectedTransactions={selectedTransactions}
+      />
+    );
   });
 }

@@ -12,6 +12,7 @@ export default function MonthTransactionList({
   transactions,
   onEdit,
   onDelete,
+  selectedTransactions,
 }) {
   const monthlyData = groupTransactionsByDay(transactions);
   return (
@@ -23,6 +24,7 @@ export default function MonthTransactionList({
             onEdit={onEdit}
             onDelete={onDelete}
             key={idx}
+            selectedTransactions={selectedTransactions}
           />
         );
       })}

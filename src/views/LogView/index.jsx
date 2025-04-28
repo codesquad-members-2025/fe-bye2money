@@ -38,6 +38,7 @@ export default function LogView() {
           transactions={mainPageState}
           onEdit={(item) => setSelectedTransactions(item)}
           onDelete={(item) => deleteTransaction(item, mainPageDispatch)}
+          selectedTransactions={selectedTransactions}
         />
       </LogBody>
     </LogContainer>

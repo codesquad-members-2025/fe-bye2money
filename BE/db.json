@@ -145,6 +145,18 @@
       "day": 26
     },
     {
+      "id": "802eacfe-6a7e-4d27-93d4-03cd4180e92e",
+      "month": 4,
+      "regDate": "2025.04.01",
+      "currentType": "expense",
+      "amount": 94067,
+      "description": "의료/건강",
+      "method": "현금",
+      "classification": "의료/건강",
+      "year": 2025,
+      "day": 1
+    },
+    {
       "id": "f15d8b57-62c1-48d5-906f-0d7d11f0431a",
       "month": 4,
       "regDate": "2025.04.12",
@@ -229,6 +241,18 @@
       "day": 21
     },
     {
+      "id": "7fb29401-c450-4cf1-bda9-9dd55204ef9a",
+      "month": 4,
+      "regDate": "2025.04.04",
+      "currentType": "earning",
+      "amount": 70362,
+      "description": "기타수입",
+      "method": "카드",
+      "classification": "기타수입",
+      "year": 2025,
+      "day": 4
+    },
+    {
       "id": "12ad04da-8c1b-489c-a82f-78e517820e63",
       "month": 4,
       "regDate": "2025.04.03",
@@ -307,7 +331,7 @@
       "currentType": "expense",
       "amount": 331980,
       "description": "문화/여가",
-      "method": "이체",
+      "method": "카카오페이",
       "classification": "문화/여가",
       "year": 2025,
       "day": 1
@@ -395,18 +419,6 @@
       "classification": "월급",
       "year": 2025,
       "day": 22
-    },
-    {
-      "id": "5f479456-fb6f-4aba-a9a2-ea2d714992a9",
-      "month": 4,
-      "regDate": "2025.04.25",
-      "currentType": "expense",
-      "amount": 273107,
-      "description": "식비",
-      "method": "현금",
-      "classification": "식비",
-      "year": 2025,
-      "day": 25
     },
     {
       "id": "e43d30fc-c0b9-4908-bf38-788c000af30f",
@@ -625,6 +637,30 @@
       "day": 8
     },
     {
+      "id": "95d7a65b-da42-48f5-b630-4a8b647d55dd",
+      "month": 4,
+      "regDate": "2025.04.03",
+      "currentType": "earning",
+      "amount": 202387,
+      "description": "용돈",
+      "method": "카드",
+      "classification": "용돈",
+      "year": 2025,
+      "day": 3
+    },
+    {
+      "id": "1720a5e9-8766-49b8-99fd-eb5f807a8a19",
+      "month": 4,
+      "regDate": "2025.04.05",
+      "currentType": "expense",
+      "amount": 476306,
+      "description": "기타수입",
+      "method": "현금",
+      "classification": "기타수입",
+      "year": 2025,
+      "day": 5
+    },
+    {
       "id": "c4f89c7e-f288-4ffc-b637-560e2536e2ee",
       "month": 4,
       "regDate": "2025.04.18",
@@ -647,6 +683,18 @@
       "classification": "기타수입",
       "year": 2025,
       "day": 10
+    },
+    {
+      "id": "fe7d3b63-1b64-49fa-9434-35dcb36dbb55",
+      "month": 4,
+      "regDate": "2025.04.04",
+      "currentType": "earning",
+      "amount": 110844,
+      "description": "용돈",
+      "method": "카드",
+      "classification": "용돈",
+      "year": 2025,
+      "day": 4
     },
     {
       "id": "71038716-7260-422a-85e1-a233624a6486",
@@ -1141,6 +1189,18 @@
       "day": 27
     },
     {
+      "id": "c3e3a8c1-3f3b-4a4e-8a3c-0d0a1b3e3d01",
+      "month": 3,
+      "regDate": "2025.03.03",
+      "currentType": "expense",
+      "amount": 22000,
+      "description": "식비",
+      "method": "현금",
+      "classification": "식비",
+      "year": 2025,
+      "day": 3
+    },
+    {
       "id": "d4f2e8b2-9d9c-4a7e-bb5c-1e2e3f4a5b02",
       "month": 3,
       "regDate": "2025.03.07",
@@ -1151,6 +1211,18 @@
       "classification": "용돈",
       "year": 2025,
       "day": 7
+    },
+    {
+      "id": "e3b7c6d5-8c6a-4b6d-9b3e-5e4f7a4c3b03",
+      "month": 3,
+      "regDate": "2025.03.15",
+      "currentType": "expense",
+      "amount": 43000,
+      "description": "교통(수정)",
+      "method": "카드",
+      "classification": "교통",
+      "year": 2025,
+      "day": 15
     },
     {
       "id": "a8d9e1f3-6b3d-4a4a-9d1e-8b3f7e6a4c04",
@@ -1172,7 +1244,7 @@
       "amount": 17000,
       "description": "똥응가히ㄴ히 냠냠\n사실 먹기 싫어!!! 아닌가..?",
       "method": "토스페이",
-      "classification": "기타 수입",
+      "classification": "기타수입",
       "year": 2025,
       "day": 2
     },
@@ -1223,6 +1295,18 @@
       "classification": "문화/여가",
       "year": 2025,
       "day": 27
+    },
+    {
+      "id": "b5d656a0-b299-435d-9eaf-75a6aaa75c3e",
+      "year": 2025,
+      "month": 4,
+      "day": 28,
+      "regDate": "2025.04.28",
+      "currentType": "expense",
+      "amount": 1230,
+      "description": "ㅎㅇ",
+      "method": "토스페이",
+      "classification": "문화/여가"
     }
   ]
 }
