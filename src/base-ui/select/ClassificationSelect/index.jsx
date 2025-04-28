@@ -3,9 +3,7 @@ import classificationHook from "./ClassificationHook";
 import CategorySelectButton from "../CategorySelect/CategorySelectButton";
 import OptionList from "./OptionList";
 
-const OptionWrapper = styled.div`
-  position: relative; // 기준이 되는 요소
-`;
+const OptionWrapper = styled.div``;
 
 export default function ClassificationSelect({
   classification,

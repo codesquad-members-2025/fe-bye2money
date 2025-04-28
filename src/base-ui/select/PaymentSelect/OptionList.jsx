@@ -4,11 +4,27 @@ import { useModal } from "../../../constants/AlertModal";
 import { OptionUl, DefaultLi } from "../CategorySelect/defaultListStyle";
 
 const OptionLi = styled(DefaultLi)`
+  width: 100%;
+  display: flex;
   justify-content: space-between;
 `;
 
 const AddLi = styled(DefaultLi)`
   justify-content: flex-start;
+  padding-top: 16px;
+  padding-bottom: 16px;
+`;
+
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background-color: ${({ theme }) => theme.color.token.border.default};
 `;
 
 export default function OptionList({
@@ -38,37 +54,40 @@ export default function OptionList({
         onConfirm: () => onDelete(option),
       };
       return (
-        <OptionLi key={option} onClick={() => onSelect(option)}>
-          <div>{option}</div>
-          <DefaultButton
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              openModal(deleteModalDataObj);
-            }}
-          >
-            <svg
-              width="24"
-              height="25"
-              viewBox="0 0 24 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        <ListContainer>
+          <OptionLi key={option} onClick={() => onSelect(option)}>
+            <div>{option}</div>
+            <DefaultButton
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal(deleteModalDataObj);
+              }}
             >
-              <path
-                d="M7.75732 8.25735L16.2426 16.7426"
-                stroke="#E93B5A"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M7.75732 16.7426L16.2426 8.25736"
-                stroke="#E93B5A"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </DefaultButton>
-        </OptionLi>
+              <svg
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.75732 8.25735L16.2426 16.7426"
+                  stroke="#E93B5A"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M7.75732 16.7426L16.2426 8.25736"
+                  stroke="#E93B5A"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </DefaultButton>
+          </OptionLi>
+          <Divider />
+        </ListContainer>
       );
     });
   }

@@ -1,18 +1,15 @@
 import styled from "styled-components";
 import useFormLogic from "./useFormLogic";
-import DateInput from "../../base-ui/inputs/DateInput";
-import TypeToggle from "../../base-ui/inputs/TypeToggle";
-import AmountInput from "../../base-ui/inputs/AmountInput";
-import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
-import PaymentSelect from "../../base-ui/select/PaymentSelect";
-import ClassificationSelect from "../../base-ui/select/ClassificationSelect";
 import SubmitButton from "../../base-ui/buttons/SubmitButton";
 import { useEffect } from "react";
 import DateForm from "./DateForm";
 import ValueForm from "./ValueForm";
 import DescriptionForm from "./DescriptionForm";
+import Paymentform from "./PaymentForm";
+import ClassificationForm from "./ClassificationForm";
 
 const StyledForm = styled.form`
+  position: relative; // 기준이 되는 요소
   display: flex;
   flex-direction: row;
   padding: 16px 24px;
@@ -21,6 +18,7 @@ const StyledForm = styled.form`
   justify-content: space-between;
   width: 894px;
   height: 76px;
+  z-index: 3;
 `;
 
 const Divider = styled.div`
@@ -76,14 +74,14 @@ export default function FormBox({
         }
       />
       <Divider />
-      <PaymentSelect
+      <Paymentform
         method={formState.method}
         onSelectOption={(method) =>
           formDispatch({ type: "SET_METHOD", method: method })
         }
       />
       <Divider />
-      <ClassificationSelect
+      <ClassificationForm
         classification={formState.classification}
         transactionType={formState.currentType}
         onSelectOption={(option) =>

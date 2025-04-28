@@ -61,7 +61,6 @@ const Container = styled.li`
   background-color: ${({ theme }) => theme.color.token.surface.default};
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 2;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.token.surface.point};

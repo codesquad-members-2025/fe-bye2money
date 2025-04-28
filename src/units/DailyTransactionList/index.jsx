@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  z-index: 1;
 `;
 
 const Header = styled.div`

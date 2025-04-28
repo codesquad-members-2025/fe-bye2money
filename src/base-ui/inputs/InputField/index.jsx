@@ -14,6 +14,7 @@ const InputField = styled.input`
 
 const TextAreaField = styled.textarea`
   font-weight: ${({ theme }) => theme.font.weight.semibold};
+  line-height: ${({ theme }) => theme.font.lineHeight.sm};
   font-size: ${({ theme }) => theme.font.size.xs};
   color: ${({ theme }) => theme.color.token.text.default};
   resize: none;
