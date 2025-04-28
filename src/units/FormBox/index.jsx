@@ -10,6 +10,7 @@ import SubmitButton from "../../base-ui/buttons/SubmitButton";
 import { useEffect } from "react";
 import DateForm from "./DateForm";
 import ValueForm from "./ValueForm";
+import DescriptionForm from "./DescriptionForm";
 
 const StyledForm = styled.form`
   display: flex;
@@ -68,7 +69,7 @@ export default function FormBox({
         }}
       />
       <Divider />
-      <DescriptionInput
+      <DescriptionForm
         description={formState.description}
         onChange={(val) =>
           formDispatch({ type: "SET_DESCRIPTION", description: val })

@@ -20,10 +20,11 @@ const TextAreaField = styled.textarea`
   border: none;
   outline: none;
   height: 16px;
+  width: 160px;
 
   /* 스크롤바 커스텀 */
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
   }
 
   &::-webkit-scrollbar-thumb {

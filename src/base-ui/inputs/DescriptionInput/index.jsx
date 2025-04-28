@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { TextAreaField } from "../InputField";
 
 export default function DescriptionInput({ description, onChange }) {
