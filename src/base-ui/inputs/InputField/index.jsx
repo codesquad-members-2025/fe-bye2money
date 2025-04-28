@@ -9,6 +9,7 @@ const InputField = styled.input`
   border: none;
   outline: none;
   height: 16px;
+  width: 88px;
 `;
 
 const TextAreaField = styled.textarea`

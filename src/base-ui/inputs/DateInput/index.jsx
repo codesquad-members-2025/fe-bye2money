@@ -4,6 +4,7 @@ import { handleChange } from "./inputDateHandler";
 import DefaultLabel from "../Label/DefualtLabel";
 
 const RedDateBox = styled.div`
+  padding-right: 24px;
   display: flex;
   flex-direction: column;
   gap: 4px;
