@@ -8,9 +8,14 @@ import DeleteButton from "../buttons/DeleteButton";
 import { formatAmount } from "../../utils/amountChanger";
 import { useModal } from "../../constants/AlertModal";
 
-export default function ListItem({ item, onEdit, onDelete }) {
+export default function ListItem({
+  item,
+  onEdit,
+  onDelete,
+  selectedTransactions,
+}) {
   const [ishover, setIshover] = useState(false);
-  const { classification, description, method, amount, currentType } = item;
+  const { classification, description, method, amount, currentType, id } = item;
   const openModal = useModal();
   const deleteModalDataObj = {
     message: "해당 내역을 삭제하시겠습니까?",
@@ -30,6 +35,7 @@ export default function ListItem({ item, onEdit, onDelete }) {
       onClick={handleContainerClick}
       onMouseEnter={() => setIshover(true)}
       onMouseLeave={() => setIshover(false)}
+      $isEdit={selectedTransactions?.id === id}
     >
       <CategoryTag classification={classification} />
       <DescriptionText description={description} />
@@ -58,7 +64,10 @@ const Container = styled.li`
   gap: 16px;
   align-items: center;
   padding-right: 16px;
-  background-color: ${({ theme }) => theme.color.token.surface.default};
+  background-color: ${({ theme, $isEdit }) =>
+    $isEdit
+      ? theme.color.token.surface.point
+      : theme.color.token.surface.default};
   cursor: pointer;
   transition: background-color 0.3s;
 
