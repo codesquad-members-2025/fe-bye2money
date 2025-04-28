@@ -64,7 +64,7 @@ export default function useFormLogic(
         currentYear === formState.year
       ) {
         //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
-        dispatch({ type: "TRANSACTION_EDIT", payload: formState });
+        dispatch({ type: "EDIT_TRANSACTION", payload: formState });
         setSelectedTransactions(null);
       }
     } else {
@@ -85,7 +85,7 @@ export default function useFormLogic(
         currentYear === formState.year
       ) {
         //메인페이지의 디스패치에게 데이터 전달-> 서버와 웹 동기화 작업
-        dispatch({ type: "TRANSACTION_ADD", payload: formState });
+        dispatch({ type: "ADD_TRANSACTION", payload: formState });
       }
     }
   };
@@ -131,6 +131,9 @@ function reducer(state, action) {
     case "SET_ID": {
       return { ...state, id: action.id };
     }
+    case "SET_ALL": {
+      return { ...action.payload };
+    }
   }
 }
 
@@ -146,10 +149,6 @@ function getInitialArg(selectedTransactions = null) {
     classification: "",
   };
 
-  //로그 편집할때는 기존의 선택한 로그데이터가 초기데이터로 초기화
-  if (selectedTransactions) {
-    initialArg = selectedTransactions;
-  }
   return initialArg;
 }
 

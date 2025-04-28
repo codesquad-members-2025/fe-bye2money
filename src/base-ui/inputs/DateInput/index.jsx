@@ -19,7 +19,7 @@ export default function DateInput({ value, onChange }) {
     <RedDateBox>
       <InputField
         placeholder="YYYY.MM.DD"
-        value={value}
+        value={value || ""}
         onChange={(e) => handleChange(e, onChange)}
         required
       />

@@ -7,6 +7,7 @@ import DescriptionInput from "../../base-ui/inputs/DescriptionInput";
 import PaymentSelect from "../../base-ui/select/PaymentSelect";
 import ClassificationSelect from "../../base-ui/select/ClassificationSelect";
 import SubmitButton from "../../base-ui/buttons/SubmitButton";
+import { useEffect } from "react";
 
 const StyledForm = styled.form`
   display: flex;
@@ -17,16 +18,20 @@ const StyledForm = styled.form`
   border: 1px solid ${({ theme }) => theme.color.token.text.default};
 `;
 
-export default function FormBox(
+export default function FormBox({
   dispatch,
   selectedTransactions,
-  setSelectedTransactions
-) {
+  setSelectedTransactions,
+}) {
   const { formState, formDispatch, handleSubmit, isValid } = useFormLogic(
     dispatch,
     selectedTransactions,
     setSelectedTransactions
   );
+
+  useEffect(() => {
+    formDispatch({ type: "SET_ALL", payload: selectedTransactions });
+  }, [selectedTransactions]);
   return (
     <StyledForm onSubmit={(e) => handleSubmit(e)}>
       <DateInput
