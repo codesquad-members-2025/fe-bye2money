@@ -1239,14 +1239,14 @@
     {
       "id": "b2a3d4e5-7c6f-4b5d-8e2a-0a1b2c3d4e05",
       "month": 5,
-      "regDate": "2025.05.02",
+      "regDate": "2025.05.03",
       "currentType": "earning",
       "amount": 17000,
       "description": "똥응가히ㄴ히 냠냠\n사실 먹기 싫어!!! 아닌가..?",
       "method": "토스페이",
       "classification": "기타수입",
       "year": 2025,
-      "day": 2
+      "day": 3
     },
     {
       "id": "c5d6e7f8-1a2b-4c3d-9e5f-0b1c2d3e4f06",
@@ -1307,6 +1307,18 @@
       "description": "ㅎㅇ",
       "method": "토스페이",
       "classification": "문화/여가"
+    },
+    {
+      "id": "a7bb599a-9db3-4195-951f-c930d5df43d1",
+      "year": 2025,
+      "month": 6,
+      "day": 1,
+      "regDate": "2025.06.01",
+      "currentType": "expense",
+      "amount": 10000,
+      "description": "프로틴",
+      "method": "감자10개",
+      "classification": "쇼핑/뷰티"
     }
   ]
 }
