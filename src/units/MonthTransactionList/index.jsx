@@ -6,11 +6,13 @@ const Container = styled.div`
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  z-index: 1;
 `;
 export default function MonthTransactionList({
   transactions,
   onEdit,
   onDelete,
+  selectedTransactions,
 }) {
   const monthlyData = groupTransactionsByDay(transactions);
   return (
@@ -22,6 +24,7 @@ export default function MonthTransactionList({
             onEdit={onEdit}
             onDelete={onDelete}
             key={idx}
+            selectedTransactions={selectedTransactions}
           />
         );
       })}

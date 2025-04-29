@@ -14,6 +14,7 @@ const BackgroundDiv = styled.div`
   padding-right: 297px;
   background-color: ${({ theme }) => theme.color.pastel.jordyBlue};
   padding-top: 40px;
+  z-index: 3;
 `;
 
 const HeaderWrapper = styled.div`

@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import moneyReducer from "../../utils/moneyReducer";
 
 const Container = styled.div`
-  width: 100%;
+  width: 846px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +19,7 @@ const CheckBoxWrapper = styled.div`
 
 export default function MonthlyInfomation({ transactions }) {
   const [isEarningActive, setIsEarningActive] = useState(true);
-  const [isExpenseActive, setIsExpensActive] = useState(true);
+  const [isExpenseActive, setIsExpenseActive] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const { earning, expense } = moneyReducer(transactions);
 
@@ -38,7 +38,7 @@ export default function MonthlyInfomation({ transactions }) {
   }
   function toggleExpenseButton() {
     const currentTypeArray = searchParams.getAll("currentType");
-    setIsExpensActive((prev) => !prev);
+    setIsExpenseActive((prev) => !prev);
     const newParams = new URLSearchParams(searchParams);
     if (currentTypeArray.includes("expense")) {
       newParams.delete("currentType", "expense");

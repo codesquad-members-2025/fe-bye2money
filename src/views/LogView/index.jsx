@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import MonthlyInfomation from "../../units/MonthlyInfomation";
 import MonthTransactionList from "../../units/MonthTransactionList";
+import { deleteTransaction } from "./deleteTransaction";
 
 const LogContainer = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const LogBody = styled.div`
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  z-index: 1;
 `;
 //setSelectedTransactions은 로그뷰에 내려줘야한다.
 export default function LogView() {
@@ -35,6 +37,8 @@ export default function LogView() {
         <MonthTransactionList
           transactions={mainPageState}
           onEdit={(item) => setSelectedTransactions(item)}
+          onDelete={(item) => deleteTransaction(item, mainPageDispatch)}
+          selectedTransactions={selectedTransactions}
         />
       </LogBody>
     </LogContainer>

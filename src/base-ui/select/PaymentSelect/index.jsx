@@ -4,9 +4,7 @@ import CategorySelectButton from "../CategorySelect/CategorySelectButton";
 import OptionList from "./OptionList";
 import methodReducer from "./methodReducer";
 
-const OptionWrapper = styled.div`
-  position: relative; // 기준이 되는 요소
-`;
+const OptionWrapper = styled.div``;
 
 export default function PaymentSelect({ method, onSelectOption }) {
   const [categoryActivate, setCategoryActivate] = useState(false);
@@ -23,17 +21,16 @@ export default function PaymentSelect({ method, onSelectOption }) {
         }}
         input={method}
       />
-      {categoryActivate && (
-        <OptionList
-          options={methods}
-          onSelectOption={(option) => {
-            onSelectOption(option);
-            setCategoryActivate(false);
-          }}
-          onAdd={(method) => dispatch({ type: "ADD", method: method })}
-          onDelete={(method) => dispatch({ type: "DELETE", method: method })}
-        />
-      )}
+      <OptionList
+        options={methods}
+        onSelectOption={(option) => {
+          onSelectOption(option);
+          setCategoryActivate(false);
+        }}
+        onAdd={(method) => dispatch({ type: "ADD", method: method })}
+        onDelete={(method) => dispatch({ type: "DELETE", method: method })}
+        categoryActivate={categoryActivate}
+      />
     </OptionWrapper>
   );
 }

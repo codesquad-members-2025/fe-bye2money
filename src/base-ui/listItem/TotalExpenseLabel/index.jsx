@@ -5,7 +5,8 @@ const Item = styled.div`
   align-items: center;
   gap: 8px;
   font-family: ${({ theme }) => theme.font.serif};
-  color: ${({ theme }) => theme.color.token.text.default};
+  color: ${({ theme, $type }) => theme.color.token.text.default};
+
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -24,9 +25,9 @@ const TYPE_LABEL = {
 
 function getMoneyLabel(type, amount) {
   return (
-    <Item>
+    <Item $type={type}>
       <span>{TYPE_LABEL[type]}</span>
-      <span>{Number(amount).toLocaleString()}원</span>
+      <span>{amount}원</span>
     </Item>
   );
 }
