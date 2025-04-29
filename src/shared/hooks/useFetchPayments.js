@@ -1,33 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { getPayments } from '../api/paymentsApi';
 
 export default function useFetchPayments(userId) {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchPayments = async () => {
-    try {
-      // TODO 실제 API url로 변경
-      const response = await fetch(`/mockData/payments${userId}.json`);
-      if (!response.ok) {
-        throw new Error('Data file not found');
-      }
+  const fetchPayments = useCallback(async () => {
+    if (!userId) return;
 
-      const result = await response.json();
+    setLoading(true);
+    setError(null);
+    setPayments([]);
+
+    try {
+      const result = await getPayments();
       setPayments(result);
     } catch (err) {
-      setError(err.message);
+      setError(err.message || '결제수단을 불러오는 데 실패했습니다.');
     } finally {
       setLoading(false);
     }
-  };
-
-  useEffect(() => {
-    if (!userId) return;
-    setLoading(true);
-    setError(null);
-    fetchPayments();
   }, [userId]);
 
-  return { payments, loading, error };
+  useEffect(() => {
+    fetchPayments();
+  }, [fetchPayments]);
+
+  return { payments, loading, error, refetch: fetchPayments };
 }

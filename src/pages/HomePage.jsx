@@ -1,9 +1,13 @@
 import { useReducer, useMemo, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import {
+  postRecordToServer,
+  patchRecordToServer,
+  deleteRecordFromServer,
+} from '../shared/api/recordsApi';
 import useCurrentYearMonthNumber from '../shared/hooks/useCurrentYearMonthNumber';
 import { isSameYearMonth, getTimestamp } from '../shared/utils/date';
 import { deepEqual } from '../shared/utils/record';
-import { v4 as uuidv4 } from 'uuid';
 import initialFormState from '../features/form/reducers/initialFormState';
 import formReducer from '../features/form/reducers/formReducer';
 import recordSchema from '../features/form/utils/recordSchema';
@@ -40,10 +44,14 @@ function HomePage() {
   };
 
   const buildRecordToSend = (formData, isEditMode) => {
+    const [year, month] = formData.date.split('-');
+
     return {
       ...formData,
-      id: isEditMode ? formData.id : uuidv4(),
+      id: isEditMode ? formData.id : undefined,
       createdAt: isEditMode ? formData.createdAt : getTimestamp(new Date()),
+      year,
+      month,
     };
   };
 
@@ -58,18 +66,17 @@ function HomePage() {
       formData.date
     );
 
-    const record = buildRecordToSend(formData, isEditMode); //TODO 추후 서버로 오는 resonse.data 사용 시 buildRecordToSend 함수 제거
+    const recordToSend = buildRecordToSend(formData, isEditMode);
 
     try {
-      // TODO 서버 api 추가
-      // const response = isEditMode
-      //   ? await patchRecordToServer(recordToSend)
-      //   : await postRecordToServer(recordToSend);
-      // const savedRecord = response.data;
+      const response = isEditMode
+        ? await patchRecordToServer(recordToSend)
+        : await postRecordToServer(recordToSend);
+      const savedRecord = response;
 
       recordDataDispatch({
         type: isEditMode ? 'UPDATE_RECORD' : 'ADD_RECORD',
-        payload: { record, isInCurrentMonth },
+        payload: { record: savedRecord, isInCurrentMonth },
       });
 
       handleReset();
@@ -78,11 +85,16 @@ function HomePage() {
     }
   };
 
-  const handleDelete = (recordId, isEditing) => {
-    recordDataDispatch({ type: 'DELETE_RECORD', payload: recordId });
-    //fetch delete
+  const handleDelete = async (recordId, isEditing) => {
+    try {
+      await deleteRecordFromServer(recordId);
 
-    if (isEditing) handleReset();
+      recordDataDispatch({ type: 'DELETE_RECORD', payload: recordId });
+
+      if (isEditing) handleReset();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

@@ -133,7 +133,7 @@ const colors = {
 
 const categoryColors = {
   생활: 'pastelPerano',
-  쇼핑뷰티: 'pastelChenin',
+  '쇼핑/뷰티': 'pastelChenin',
   '의료/건강': 'pastelCruise',
   식비: 'pastelOnahu',
   교통: 'pastelGlacier',
