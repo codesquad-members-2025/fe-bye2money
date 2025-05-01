@@ -133,18 +133,6 @@
       "day": 12
     },
     {
-      "id": "0969b8eb-92fd-46eb-b8b0-112dbc0d3b8c",
-      "month": 4,
-      "regDate": "2025.04.11",
-      "currentType": "earning",
-      "amount": 433960,
-      "description": "월급",
-      "method": "카드",
-      "classification": "월급",
-      "year": 2025,
-      "day": 11
-    },
-    {
       "id": "a46bf38e-49f2-4767-953c-41c6b20b6623",
       "month": 4,
       "regDate": "2025.04.12",
@@ -1064,7 +1052,7 @@
       "regDate": "2025.06.11",
       "currentType": "expense",
       "amount": 10000,
-      "description": "ㅇㅇㅇ",
+      "description": "트랄라레로트랄랄레",
       "method": "토스페이",
       "classification": "생활"
     },
@@ -1088,7 +1076,7 @@
       "regDate": "2025.06.20",
       "currentType": "expense",
       "amount": 1230,
-      "description": "ㄹㄹ",
+      "description": "리리리라리라",
       "method": "토스페이",
       "classification": "의료/건강"
     },

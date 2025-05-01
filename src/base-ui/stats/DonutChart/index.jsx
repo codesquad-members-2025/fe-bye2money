@@ -1,8 +1,10 @@
 import { useTheme } from "styled-components";
 import chipColorMap from "../../util/chipColorMap";
+import { MaskCircle } from "./chartMaskHandler";
 
 export default function DonutChart({
   data,
+  mainPageState,
   svgSize = 254,
   strokeWidth = svgSize * 0.2,
 }) {
@@ -40,6 +42,14 @@ export default function DonutChart({
         cumulativePercentage += percentage;
         return circle;
       })}
+      <MaskCircle
+        data={mainPageState}
+        cx={svgSize / 2}
+        cy={svgSize / 2}
+        radius={circleRadius}
+        strokeWidth={strokeWidth}
+        circumference={circumference}
+      />
     </svg>
   );
 }
