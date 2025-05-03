@@ -1,5 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTheme } from "styled-components";
+import styled from "styled-components";
+
+const StyledCircle = styled.circle`
+  transition: ${({ $transFormRef }) =>
+    $transFormRef ? "stroke-dashoffset 2s ease-out" : "none"};
+  transform: rotate(-90deg);
+  transform-origin: center;
+`;
 
 export function MaskCircle({
   cx,
@@ -11,15 +19,20 @@ export function MaskCircle({
 }) {
   const [offset, setOffset] = useState(0);
   const theme = useTheme();
+  const transFormRef = useRef(true);
 
   useEffect(() => {
+    transFormRef.current = false;
     setOffset(0);
-    const timer = setTimeout(() => setOffset(-circumference), 100);
+    const timer = setTimeout(() => {
+      transFormRef.current = true;
+      setOffset(-circumference);
+    }, 100);
     return () => clearTimeout(timer);
-  }, [data]);
+  }, [JSON.stringify(data)]);
 
   return (
-    <circle
+    <StyledCircle
       cx={cx}
       cy={cy}
       r={radius}
@@ -28,11 +41,7 @@ export function MaskCircle({
       strokeWidth={strokeWidth}
       strokeDasharray={circumference}
       strokeDashoffset={offset}
-      style={{
-        transition: "stroke-dashoffset 2s ease-out",
-        transform: `rotate(-90deg)`,
-        transformOrigin: "center",
-      }}
+      $transFormRef={transFormRef}
     />
   );
 }

@@ -43,7 +43,7 @@ export default function DonutChart({
         return circle;
       })}
       <MaskCircle
-        data={mainPageState}
+        data={data}
         cx={svgSize / 2}
         cy={svgSize / 2}
         radius={circleRadius}
