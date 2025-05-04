@@ -29,7 +29,7 @@ export function MaskCircle({
       setOffset(-circumference);
     }, 100);
     return () => clearTimeout(timer);
-  }, [JSON.stringify(data)]);
+  }, [data]);
 
   return (
     <StyledCircle
@@ -41,7 +41,7 @@ export function MaskCircle({
       strokeWidth={strokeWidth}
       strokeDasharray={circumference}
       strokeDashoffset={offset}
-      $transFormRef={transFormRef}
+      $transFormRef={transFormRef.current}
     />
   );
 }
