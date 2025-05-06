@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CategoryTag from "../../listItem/CategoryTag";
 import { formatAmount } from "../../../utils/amountChanger";
+import { useSearchParams } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -25,8 +26,14 @@ const Body = styled.div`
 export default function StatsTableItem({ classification, percentage, amount }) {
   const percentageUnit = "%";
   const amountUnit = "원";
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function paramsHandler(category) {
+    const currentParams = Object.fromEntries(searchParams.entries());
+    setSearchParams({ ...currentParams, category });
+  }
   return (
-    <Container>
+    <Container onClick={() => paramsHandler(classification)}>
       <CategoryTag classification={classification} />
       <Body>
         <span>

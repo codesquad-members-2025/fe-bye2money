@@ -1,3 +1,3 @@
 export default function Polyline({ points }) {
-  return <polyline points={points.map("")} />;
+  return <polyline points={points} />;
 }

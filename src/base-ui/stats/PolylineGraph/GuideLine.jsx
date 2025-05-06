@@ -1,4 +1,4 @@
-function GuideLineX(width, height, padding, count) {
+function GuideLineX({ width, height, padding, count }) {
   const { left, right, top, bottom } = padding;
 
   const x1 = left;
@@ -10,7 +10,7 @@ function GuideLineX(width, height, padding, count) {
   }
 }
 
-function GuideLineY(width, height, padding, count) {
+function GuideLineY({ width, height, padding, count }) {
   const { left, right, top, bottom } = padding;
 
   const y1 = top;

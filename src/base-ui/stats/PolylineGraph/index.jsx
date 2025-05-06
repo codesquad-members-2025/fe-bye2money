@@ -23,7 +23,7 @@ export default function PolygonGraph({ data }) {
       <Axis width={width} height={height} padding={padding} />
       <GuideLineX width={width} height={height} padding={padding} count={10} />
       <GuideLineY width={width} height={height} padding={padding} count={10} />
-      <Polyline points={points.map(" ")} />
+      <Polyline points={points.join(" ")} />
       <Label data={data} width={width} height={height} padding={padding} />
     </svg>
   );

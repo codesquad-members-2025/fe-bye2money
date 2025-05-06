@@ -6,7 +6,7 @@ import CategoryStatisticsList from "../../units/CategoryStatisticsList/Index";
 import transactionParser from "./transactionParser";
 import moneyReducer from "../../utils/moneyReducer";
 import { parseAmount } from "../../utils/amountChanger";
-import PolygonGraph from "../../base-ui/stats/PolylineGraph";
+import PolylineGraphUnit from "../../units/PolylineGraphUnit";
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ export default function StatisticsView() {
         </ChartContainer>
         <CategoryStatisticsList expense={expense} expenseStatus={parsedData} />
       </Wrapper>
-      {targetCategory && <PolygonGraph />}
+      {targetCategory && <PolylineGraphUnit />}
     </Container>
   );
 }
