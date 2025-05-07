@@ -1,10 +1,29 @@
+import styled from "@emotion/styled";
+
 const MonthNavigator = () => {
   return (
-    <div className="flex items-center gap-2">
+    <Container>
       <button className="p-2 bg-gray-200 rounded">Previous</button>
-      <span className="text-lg font-semibold">March 2023</span>
+      <Calendar>
+        <Year></Year>
+        <MonthNum></MonthNum>
+        <MonthEng></MonthEng>
+      </Calendar>
       <button className="p-2 bg-gray-200 rounded">Next</button>
-    </div>
+    </Container>
   );
 };
 export default MonthNavigator;
+
+const Container = styled.div``;
+
+const Calendar = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Year = styled.div``;
+const MonthNum = styled.div``;
+const MonthEng = styled.div``;

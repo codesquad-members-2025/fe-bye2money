@@ -1,16 +1,26 @@
 // src/components/layout/Layout.tsx
 import { Outlet } from "react-router-dom";
 import Layout from "../features/layout/Layout";
+import styled from "@emotion/styled";
 
 const App = () => {
   return (
-    <div className="flex flex-col w-full h-full">
+    <Container>
       <Layout />
       <main>
         <Outlet />
       </main>
-    </div>
+    </Container>
   );
 };
 
 export default App;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+`;
