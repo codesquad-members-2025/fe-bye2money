@@ -1,20 +1,20 @@
-import initialFormState from './initialFormState';
-
 export default function formReducer(state, action) {
   switch (action.type) {
-    case 'SET_FIELD':
+    case 'CHANGE':
       return {
         ...state,
         [action.field]: action.value,
       };
 
-    case 'INIT_EDIT':
+    case 'INIT':
       return {
         ...action.payload,
       };
 
-    case 'RESET_FORM':
-      return initialFormState;
+    case 'RESET':
+      return {
+        ...action.initialState,
+      };
 
     default:
       return state;

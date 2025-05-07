@@ -14,7 +14,7 @@ import TabNavigation from './components/TabNavigation';
 
 const HeaderWrapper = styled.div`
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 216px;
   background-color: ${({ theme }) => theme.colors.pastelJordyBlue};
 `;

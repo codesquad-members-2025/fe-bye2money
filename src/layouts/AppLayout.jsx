@@ -1,14 +1,15 @@
 import styled from '@emotion/styled';
 
 const LayoutWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100%;
 `;
 
-export default function Layout({ children }) {
+export default function AppLayout({ children }) {
   return <LayoutWrapper>{children}</LayoutWrapper>;
 }

@@ -1,3 +1,5 @@
+import { getTimestamp } from './date';
+
 export function getSortedRecordsByDate(records) {
   return [...records].sort((a, b) => {
     // 1. date 비교 (문자열: YYYY-MM-DD)
@@ -45,3 +47,15 @@ export function deepEqual(a, b) {
   // import equal from 'fast-deep-equal';
   // export  equal;
 */
+
+export function buildRecordToSend(formData, isEditing) {
+  const [year, month] = formData.date.split('-');
+
+  return {
+    ...formData,
+    id: isEditing ? formData.id : undefined,
+    createdAt: isEditing ? formData.createdAt : getTimestamp(new Date()),
+    year,
+    month,
+  };
+}

@@ -13,6 +13,7 @@ const IconButton = styled.div`
   padding: 8px;
   border-radius: 50%;
 
+  color: ${({ theme }) => theme.colors.neutralTextDefault};
   background-color: ${({ active }) => (active ? 'white' : 'transparent')};
   transition: background-color 0.3s ease;
 

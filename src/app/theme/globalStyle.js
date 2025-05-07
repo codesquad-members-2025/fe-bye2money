@@ -14,24 +14,33 @@ const globalStyle = (theme) => css`
 
   ${resetStyles};
 
-  /* 버튼 커서 */
   button {
     cursor: pointer;
   }
 
-  /* 글로벌 커스텀 스타일 */
   body {
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    justify-content: flex-start;
     font-family: 'Pretendard', sans-serif;
     background-color: ${theme.colors.grayscale50};
+
+    overflow: hidden;
 
     transition:
       background-color 0.2s ease,
       color 0.2s ease;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 

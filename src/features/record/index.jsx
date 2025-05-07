@@ -9,15 +9,26 @@ import RecordDateGroup from './components/RecordDateGroup';
 
 const RecordListContainer = styled.div`
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 40px;
   width: 100%;
+  height: 100%;
   max-width: 800px;
-  margin: 0 auto;
 `;
 
 const ListBox = styled.div`
-  margin-top: 16px;
+  flex: 1 1 auto;
+  padding-right: 12px;
+  padding-bottom: 80px;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 `;
 
 export default function RecordList({

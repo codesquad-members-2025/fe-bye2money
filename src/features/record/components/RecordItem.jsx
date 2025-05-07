@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
+import CategoryTag from '../../../shared/components/CategoryTag';
+
 const hoveredStyles = (theme) => css`
   background-color: ${theme.colors.neutralSurfacePoint};
 
@@ -27,18 +29,6 @@ const Item = styled.div`
   }
 
   ${({ isEditing, theme }) => isEditing && hoveredStyles(theme)}
-`;
-
-const Category = styled.span`
-  width: 92px;
-  flex: 0 0 auto;
-  padding: 16px 23px;
-  text-align: center;
-  white-space: nowrap;
-  background-color: ${({ theme, children }) => {
-    const colorKey = theme.categoryColors[children];
-    return theme.colors[colorKey];
-  }};
 `;
 
 const Description = styled.span`
@@ -96,7 +86,7 @@ export default function RecordItem({ record, onSelect, onDelete, isEditing }) {
 
   return (
     <Item isEditing={isEditing} onClick={() => onSelect(record)}>
-      <Category>{category}</Category>
+      <CategoryTag>{category}</CategoryTag>
       <Description>{description}</Description>
       <PaymentMethod>{paymentMethod}</PaymentMethod>
       <Amount className="amount" type={type}>

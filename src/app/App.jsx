@@ -1,13 +1,13 @@
-import Layout from '../layouts/Layout';
-import Content from './Content';
+import AppLayout from '../layouts/AppLayout';
+import { Outlet } from 'react-router-dom';
 import Header from '../features/header';
 
 function App() {
   return (
-    <Layout>
+    <AppLayout>
       <Header />
-      <Content />
-    </Layout>
+      <Outlet />
+    </AppLayout>
   );
 }
 
